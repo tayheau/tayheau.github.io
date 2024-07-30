@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tayheau wip</title>
+    <style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        color: white;
+        background-color: #161617;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+
+    p {
+        color: rgb(174, 174, 174);
+    }
+
+    pre {
+        font-size: 0.5%;
+        color: rgb(63, 68, 68);
+        user-select: none;
+        padding-bottom: 100px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <pre id="ascii"></pre>
+        <p>wip</p>
+        <p>more to come very soon ;)</p>
+        
+    </div>
+
+    
+
+    <script>
+        // JavaScript to load ASCII art from file
+        fetch('drgDriller.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('ascii').textContent = text;
+            })
+            .catch(error => {
+                console.error('Error fetching ASCII art:', error);
+            });
+    </script>
+</body>
+</html>
