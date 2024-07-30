@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+            background-color: #161617;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            margin-bottom: 20px;
+            color: gray;
+        }
+
+        .post-content {
+            line-height: 1.6;
+        }
+
+        #nav {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(174, 174, 174);
+            margin-right: 1em;
+        }
+
+        a:hover {
+            color: rgb(100, 100, 100);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>{{ site.title }}</h2>
+        <nav id="nav">
+            <a href="{{ site.baseurl }}/">Home</a>
+            <a href="{{ site.baseurl }}/logs.html">Logs</a>
+            <a href="https://github.com/recalldude">github/tayheau</a>
+            <a href="https://github.com/recalldude">@tayheau</a>
+        </nav>
+    </header>
+
+    <article>
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">
+            <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+        </div>
+        <div class="post-content">
+            {{ content }}
+        </div>
+    </article>
+</body>
+</html>
