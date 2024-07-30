@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Hello World!"
-date: 2024-07-30 10:00:00 -0500
-categories: blog
+date: 2024-07-30
 ---
 
 # Hello World!
