@@ -3,8 +3,6 @@ title: "Hello World!"
 date: 2024-07-30
 layout: post
 ---
-
-
 First log on my personnal website, hope i will be consistent on it. This post will basicly help me ajust the layout settings so if you want to read some classical latin litterature from 'de Finibus Bonorum et Malorum' here you go ;)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium felis non est placerat, sit amet commodo enim fringilla. Suspendisse vel facilisis est. Curabitur sit amet finibus turpis. Suspendisse imperdiet tellus a bibendum ultrices. Sed id efficitur augue. Integer quis mattis felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris congue ultrices libero at convallis. Vivamus lacinia diam a ante molestie tempus in sit amet leo. Cras placerat arcu sed arcu euismod fringilla vitae a neque. Sed orci libero, mattis eu ante ac, cursus fermentum nunc. Vivamus in sapien ut tortor consequat molestie. Integer laoreet ex non risus tempus, at porttitor augue ultricies.
