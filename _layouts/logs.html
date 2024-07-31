@@ -28,28 +28,12 @@
             margin-bottom: 20px;
         }
 
-        .post-meta {
-            margin-bottom: 20px;
-            color: gray;
-        }
-
-        .post-content {
-            line-height: 1.6;
-            white-space: pre-line;
-        }
-
         #nav {
             display: flex;
             margin-bottom: 20px;
         }
 
-        article {
-            text-align: justify;
-        }
 
-        #container {
-            width: 60em;
-        }
 
         a {
             text-decoration: none;
@@ -60,20 +44,30 @@
             color: rgb(100, 100, 100);
         }
 
+        li a {
+            color: white;
+        }
+
+        li span {
+            color: #808080;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+        
+
     </style>
 </head>
 <body>
     <div id="container">
-        <a href="https://recalldude.github.io/logs.html">< previous</a>
-        <article> 
+        <a href="https://recalldude.github.io">< previous</a>
+        <div> 
             <h2>{{ page.title }}</h2>
-            <div class="post-meta">
-                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
-            </div>
-            <div class="post-content">
+            <div >
                 {{ content }}
             </div>
-        </article>
+        </div>
     </div>
 </body>
 </html>
