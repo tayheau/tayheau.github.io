@@ -50,6 +50,10 @@
             color: rgb(100, 100, 100);
         }
 
+        .post-meta {
+            color: gray;
+        }
+
         .content {
             margin-top: 2em;
             white-space: pre-line;
@@ -73,6 +77,9 @@
     <div id="container">
         <a href="https://recalldude.github.io">< previous</a>
             <h2>{{ page.title }}</h2>
+            <div class="post-meta">
+                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+            </div>
             <div class="content">
                 {{ content }}
             </div>
