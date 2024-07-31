@@ -50,13 +50,29 @@
             color: rgb(100, 100, 100);
         }
 
+        .content {
+            margin-top: 2em;
+        }
+
+        li a {
+            color: white;
+        }
+
+        li span {
+            color: #808080;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
     </style>
 </head>
 <body>
     <div id="container">
         <a href="https://recalldude.github.io">< previous</a>
             <h2>{{ page.title }}</h2>
-            <div class="post-content">
+            <div class="content">
                 {{ content }}
             </div>
     </div>
