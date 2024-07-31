@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+            background-color: #161617;
+            margin-top: 10em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            margin-bottom: 20px;
+            color: gray;
+        }
+
+        .post-content {
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        #nav {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        article {
+            text-align: justify;
+        }
+
+        #container {
+            width: 60em;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(174, 174, 174);
+        }
+
+        a:hover {
+            color: rgb(100, 100, 100);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a href="https://recalldude.github.io/logs.html">< previous</a>
+        <article> 
+            <h2>{{ page.title }}</h2>
+            <div class="post-meta">
+                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+            </div>
+            <div class="post-content">
+                {{ content }}
+            </div>
+        </article>
+    </div>
+</body>
+</html>
