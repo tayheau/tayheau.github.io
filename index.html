@@ -67,7 +67,7 @@
 
     <script>
         // JavaScript to load ASCII art from file
-        fetch('_medias/tetsuo_braille.txt')
+        fetch('https://raw.githubusercontent.com/tayheau/tayheau.github.io/main/_medias/tetsuo_braille.txt')
             .then(response => response.text())
             .then(text => {
                 document.getElementById('ascii').textContent = text;
