@@ -74,7 +74,6 @@
     	table {
 	    width: 100%;
 	    border-collapse: collapse;
-	    word-wrap: break-word;
 	}
 	
 	th, td {
@@ -82,7 +81,14 @@
 	    padding: 8px;
 	    text-align: left;
 	}
-	
+	    
+	td {
+	    border: 1px solid black;
+	    padding: 8px;
+	    word-wrap: break-word;
+	    overflow-wrap: break-word;
+	  }
+	    
 	th {
 	    background-color: #323131;
 	}
