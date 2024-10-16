@@ -4,8 +4,10 @@ date: 2024-10-16
 layout: post
 ---
 <div style="text-align:center">
-  <img src="https://github.com/tayheau/tayheau.github.io/blob/main/_medias/convolution_but_fast.jpg?raw=true" />
+  <img src=https://raw.githubusercontent.com/tayheau/tayheau.github.io/refs/heads/main/_medias/convolution_but_fast.jpg" />
 </div>
+
+![](https://raw.githubusercontent.com/tayheau/tayheau.github.io/refs/heads/main/_medias/convolution_but_fast.jpg)
 
 ## An important operation
 Convolution is one of the most important linear operation in the domain of Deep Learning. It allowed the current state of Deep Learning by being at the center of one of the two major recent breakthrough (the other one being in 2017 with the attention mechanism[ [10] ](#10)). In 2012 when Krizhevsky et al.[ [9] ](#9) proved that state-of-the-art image modeling was overperformed by a CNN and a 100x larger dataset.
