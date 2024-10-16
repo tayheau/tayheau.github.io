@@ -4,7 +4,7 @@ date: 2024-10-16
 layout: post
 ---
 <div style="text-align:center">
-  <img src="../_medias/convolution_but_fast.jpg" />
+  <img src="https://github.com/tayheau/tayheau.github.io/blob/main/_medias/convolution_but_fast.jpg?raw=true" />
 </div>
 
 ## An important operation
