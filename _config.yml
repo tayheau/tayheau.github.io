@@ -8,3 +8,4 @@ include:
 collections:
   notes:
     output: true
+    permalink: /:collection/:path/
