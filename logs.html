@@ -2,18 +2,26 @@
 title: logs
 layout: logs
 ---
+
+<h1>Logs and Study Notes</h1>
+
+<h2>Study Notes</h2>
 <ul>
-{% for post in site.posts %}
-    {% if post.layout == "study" %}
-        <li>
-            <a href="{{ post.url }}">{{ post.title }}</a> [Study Note]
-            <span>{{ post.date | date: "%B %-d, %Y" }}</span>
-        </li>
-    {% else %}
-        <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <span>{{ post.date | date: "%B %-d, %Y" }}</span>
-        </li>
-    {% endif %}
-{% endfor %}
+  {% for note in site.notes %}
+    <li>
+      <a href="{{ note.url }}">{{ note.title }}</a> [Study Note]
+      <span>{{ note.date | date: "%B %-d, %Y" }}</span>
+    </li>
+  {% endfor %}
 </ul>
+
+<h2>Blog Posts</h2>
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>
+
