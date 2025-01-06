@@ -1,6 +1,9 @@
 ---
 layout: book
 title: "CSS Styling"
+book: "web-dev"
+type: "chapter"
+order: 2
 ---
 
 # CSS Styling
