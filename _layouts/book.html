@@ -98,20 +98,23 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <h2>
-        {% if page.book_title %}
-          {{ page.book_title }}
-        {% else %}
-          {{ site.title }}
-        {% endif %}
+        {% assign current_book = page.path | split: "/" | first %}
+        {% assign index_page = site.notes | where: "path", current_book | append: "/index.md" | first %}
+        {{ index_page.title }}
       </h2>
       <ul>
-        {% assign sorted_notes = site.notes | where: "book", page.book | sort: "chapter_number" %}
-        {% for note in sorted_notes %}
-          <li>
-            <a href="{{ note.url | relative_url }}" {% if page.url == note.url %}class="active"{% endif %}>
-              {% if note.chapter_number %}Chapter {{ note.chapter_number }}: {% endif %}{{ note.title }}
-            </a>
-          </li>
+        {% assign current_path_parts = page.path | split: "/" %}
+        {% assign current_book = current_path_parts[0] %}
+        
+        {% for note in site.notes %}
+          {% assign note_path_parts = note.path | split: "/" %}
+          {% if note_path_parts[0] == current_book and note_path_parts[1] != "index.md" %}
+            <li>
+              <a href="{{ note.url | relative_url }}" {% if page.url == note.url %}class="active"{% endif %}>
+                {{ note.title }}
+              </a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </aside>
