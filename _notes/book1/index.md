@@ -1,7 +1,11 @@
 ---
-title: "Book 1: A Journey Through Knowledge"
+---
+title: "Index"
+book: "book1"
 layout: book
-permalink: /books/book1/
+book_title: "Book One"
+chapter_number: 0
+---
 ---
 
 # Book 1: A Journey Through Knowledge
