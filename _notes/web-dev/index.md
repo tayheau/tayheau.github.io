@@ -1,6 +1,8 @@
 ---
 layout: book
 title: "Frontend Web Development"
+book: "web-dev"
+type: "index"
 ---
 
 # Frontend Web Development
