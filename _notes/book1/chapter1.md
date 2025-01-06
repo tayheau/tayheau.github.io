@@ -1,7 +1,9 @@
 ---
 title: "Chapter 1: The Beginning"
-book: /books/book1/
+book: "book1"
 layout: book
+book_title: "Book One"
+chapter_number: 1
 ---
 # Chapter 1: The Beginning
 
