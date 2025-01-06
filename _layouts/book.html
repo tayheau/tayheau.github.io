@@ -96,9 +96,16 @@
         <input type="text" placeholder="Type to search">
       </div>
       <nav class="sidebar-nav">
-        {% assign chapters = site.notes | where: "book", page.book | where: "type", "chapter" | sort: "order" %}
-        {% assign subsections = site.notes | where: "book", page.book | where: "type", "subsection" | sort: "order" %}
         <ul>
+          {% assign index = site.notes | where: "book", page.book | where_exp: "item", "item.name == 'index.md'" | first %}
+          {% if index %}
+          <li>
+            <a href="{{ index.url | relative_url }}" {% if page.url == index.url %}class="active"{% endif %}>
+              {{ index.title | default: "Overview" }}
+            </a>
+          </li>
+          {% endif %}          
+          {% assign chapters = site.notes | where: "book", page.book | where: "type", "chapter" | sort: "order" %}
           {% for chapter in chapters %}
             <li>
               <a href="{{ chapter.url | relative_url }}" {% if page.url == chapter.url %}class="active"{% endif %}>
@@ -106,14 +113,13 @@
               </a>
               {% if chapter.has_subsections %}
                 <ul>
+                  {% assign subsections = site.notes | where: "book", page.book | where: "type", "subsection" | where: "chapter", chapter.identifier | sort: "order" %}
                   {% for subsection in subsections %}
-                    {% if subsection.chapter == chapter.identifier %}
-                      <li>
-                        <a href="{{ subsection.url | relative_url }}" {% if page.url == subsection.url %}class="active"{% endif %}>
-                          {{ subsection.title }}
-                        </a>
-                      </li>
-                    {% endif %}
+                    <li>
+                      <a href="{{ subsection.url | relative_url }}" {% if page.url == subsection.url %}class="active"{% endif %}>
+                        {{ subsection.title }}
+                      </a>
+                    </li>
                   {% endfor %}
                 </ul>
               {% endif %}
