@@ -2,7 +2,7 @@
 title: "Chapter 2: Exploring the Unknown"
 layout: book
 permalink: /books/book1/chapter2/
-book: book1
+book: /books/book1/
 ---
 # Chapter 2: Exploring the Unknown
 
