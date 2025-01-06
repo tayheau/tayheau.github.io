@@ -1,7 +1,9 @@
 ---
-title: "Chapter 2: Exploring the Unknown"
-book: "/notes/book1/"
+title: "Chapter 2: The Following"
+book: "book1"
 layout: book
+book_title: "Book One"
+chapter_number: 2
 ---
 # Chapter 2: Exploring the Unknown
 
