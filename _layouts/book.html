@@ -119,11 +119,13 @@
       <ul>
         {% assign book_path = page.book %}
         {% for note in site.notes %}
-          {% if note.path contains book_path and note.path != book_index.first.path %}
+          {% if note.book == page.book and note.path != page.path %}
             <li><a href="{{ note.url }}">{{ note.title }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
+    </aside>
+
     </aside>
 
     <!-- Main Content -->
