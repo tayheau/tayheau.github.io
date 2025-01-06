@@ -97,15 +97,16 @@
       </div>
       <nav class="sidebar-nav">
         <ul>
-          {% assign index = site.notes | where: "book", page.book | where_exp: "item", "item.name == 'index.md'" | first %}
-          {% if index %}
+          {% assign current_book_notes = site.notes | where: "book", page.book %}
+          {% assign index_file = current_book_notes | where_exp: "item", "item.path contains 'index.md'" | first %}          
+          {% if index_file %}
           <li>
-            <a href="{{ index.url | relative_url }}" {% if page.url == index.url %}class="active"{% endif %}>
-              {{ index.title | default: "Overview" }}
+            <a href="{{ index_file.url | relative_url }}" {% if page.url == index_file.url %}class="active"{% endif %}>
+              {{ index_file.book_title | default: index_file.title }}
             </a>
           </li>
           {% endif %}          
-          {% assign chapters = site.notes | where: "book", page.book | where: "type", "chapter" | sort: "order" %}
+          {% assign chapters = current_book_notes | where: "type", "chapter" | sort: "order" %}
           {% for chapter in chapters %}
             <li>
               <a href="{{ chapter.url | relative_url }}" {% if page.url == chapter.url %}class="active"{% endif %}>
@@ -113,7 +114,7 @@
               </a>
               {% if chapter.has_subsections %}
                 <ul>
-                  {% assign subsections = site.notes | where: "book", page.book | where: "type", "subsection" | where: "chapter", chapter.identifier | sort: "order" %}
+                  {% assign subsections = current_book_notes | where: "type", "subsection" | where: "chapter", chapter.identifier | sort: "order" %}
                   {% for subsection in subsections %}
                     <li>
                       <a href="{{ subsection.url | relative_url }}" {% if page.url == subsection.url %}class="active"{% endif %}>
