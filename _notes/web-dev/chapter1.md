@@ -1,6 +1,9 @@
 ---
 layout: book
 title: "HTML Fundamentals"
+book: "web-dev"
+type: "chapter"
+order: 1
 ---
 
 # HTML Fundamentals
