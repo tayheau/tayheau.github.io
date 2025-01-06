@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/assets/styles.css">
-</head>
-<body>
-  <div class="container">
-    <aside class="sidebar">
-      <h2>Table of Contents</h2>
-      <ul>
-        {% assign chapters = site.notes | where: "book", page.book | sort: "order" %}
-        {% for chapter in chapters %}
-          <li><a href="{{ chapter.url }}">{{ chapter.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </aside>
-    <main class="content">
-      {{ content }}
-    </main>
-  </div>
-</body>
-</html>
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+
+<div class="toc">
+  <ul>
+    {% for note in site.notes %}
+      {% if note.book == page.book %}
+        <li><a href="{{ note.url }}">{{ note.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% include_relative {{ page.book }}-content.md %}
