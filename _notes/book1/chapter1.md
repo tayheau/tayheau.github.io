@@ -2,6 +2,7 @@
 title: "Chapter 1: The Beginning"
 layout: book
 permalink: /books/book1/chapter1/
+book: book1
 ---
 # Chapter 1: The Beginning
 
