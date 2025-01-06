@@ -1,6 +1,9 @@
 ---
 layout: book
 title: "Variables and Data Types"
+book: "python-basics"
+type: "chapter"
+order: 2
 ---
 
 # Variables and Data Types
