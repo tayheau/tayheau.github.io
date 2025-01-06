@@ -2,14 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .honkit-layout {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: #f5f5f5;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul li a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>{{ page.title }}</h1>
-  </header>
-  <main>
-    {{ content }}
-  </main>
+  <div class="honkit-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>{{ page.title }}</h2>
+      <ul>
+        {% assign book_path = page.path | split: '/' | slice: 0, 2 | join: '/' %}
+        {% for note in site.notes %}
+          {% if note.path contains book_path and note.path != page.path %}
+            <li><a href="{{ note.url }}">{{ note.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      {{ content }}
+    </main>
+  </div>
 </body>
 </html>
