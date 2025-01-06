@@ -1,8 +1,9 @@
 ---
 title: "Data Engineering Fundamentals"
 order: 1
-book: "dMLSys"
-layout: note
+book: "designingMLSystems"
+date: 2025-01-06
+layout: chapter
 ---
 
 ## Data Sources
