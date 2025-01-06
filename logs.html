@@ -13,8 +13,10 @@ layout: logs
   
   <!-- List books -->
   {% for note in site.notes %}
-    <li>
-      <a href="{{ note.url }}">{{ note.title }}</a>
-    </li>
+    {% if note.path contains 'index.md' %}
+      <li>
+        <a href="{{ note.url }}">{{ note.title }}</a>
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
