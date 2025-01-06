@@ -1,6 +1,8 @@
 ---
 layout: book
 title: "Python Programming Basics"
+book: "python-basics"
+type: "index"
 ---
 
 # Python Programming Basics
