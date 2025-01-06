@@ -108,11 +108,18 @@
   <div class="honkit-layout">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <h2>{{ site.data.books[page.book].title }}</h2>
+      <h2>
+        {% assign book_index = site.notes | where: "permalink", page.book %}
+        {% if book_index.size > 0 %}
+          {{ book_index.first.title }}
+        {% else %}
+          Untitled Book
+        {% endif %}
+      </h2>
       <ul>
         {% assign book_path = page.book %}
         {% for note in site.notes %}
-          {% if note.path contains book_path %}
+          {% if note.path contains book_path and note.path != book_index.first.path %}
             <li><a href="{{ note.url }}">{{ note.title }}</a></li>
           {% endif %}
         {% endfor %}
