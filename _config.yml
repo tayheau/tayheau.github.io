@@ -3,3 +3,9 @@ markdown: GFM
 highlighter: none
 gems:
   - jekyll-mermaid
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+
