@@ -1,6 +1,9 @@
 ---
 layout: book
 title: "Getting Started with Python"
+book: "python-basics"
+type: "chapter"
+order: 1
 ---
 
 # Getting Started with Python
