@@ -7,5 +7,5 @@ permalink: /books/book1/
 
 Welcome to **Book 1**! Below are the chapters for this book:
 
-
-Navigate to the chapters to dive in!
+- [Chapter 1: The Beginning]({{ '/books/book1/chapter1/' | relative_url }})
+- [Chapter 2: Exploring the Unknown]({{ '/books/book1/chapter2/' | relative_url }})
