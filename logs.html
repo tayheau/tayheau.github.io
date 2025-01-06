@@ -2,19 +2,6 @@
 title: logs
 layout: logs
 ---
-
-<ul>
-  {% for book in site.notes %}
-    {% for note in book %}
-      <li>
-        <a href="{{ note.url }}">{{ note.title }}</a> [Study Note]
-        <span>{{ note.date | date: "%B %-d, %Y" }}</span>
-      </li>
-    {% endfor %}
-  {% endfor %}
-</ul>
-
-<h2>Blog Posts</h2>
 <ul>
   {% for post in site.posts %}
     <li>
