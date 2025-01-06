@@ -97,15 +97,20 @@
   <div class="honkit-layout">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <h2>
-        {% assign current_book = page.path | split: "/" | first %}
-        {% assign index_page = site.notes | where: "path", current_book | append: "/index.md" | first %}
-        {{ index_page.title }}
-      </h2>
+      {% assign current_path_parts = page.path | split: "/" %}
+      {% assign current_book = current_path_parts[0] %}
+      
+      <!-- Find and display current book title -->
+      {% for note in site.notes %}
+        {% assign note_path_parts = note.path | split: "/" %}
+        {% if note_path_parts[0] == current_book and note_path_parts[1] == "index.md" %}
+          <h2>{{ note.title }}</h2>
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
       <ul>
-        {% assign current_path_parts = page.path | split: "/" %}
-        {% assign current_book = current_path_parts[0] %}
-        
+        <!-- Display only chapters from current book -->
         {% for note in site.notes %}
           {% assign note_path_parts = note.path | split: "/" %}
           {% if note_path_parts[0] == current_book and note_path_parts[1] != "index.md" %}
