@@ -33,7 +33,7 @@ column-major -> better for analysis purposes ([[Pandas Python]])
 - __unordered data__ : order of the rows/columns is not important
 
 relations should be normalized  (1FN, 2FN, etc...), it will help to reduce the redudancy & improve data integrity 
->[!caution]
+
 >One major downside is that data can be massively spreaded and it can be costfull to run jointure operations
 
 ### NoSQL Models
@@ -60,12 +60,12 @@ Transactionnal VS Analytical Processing
 - Data passing through databases
 - Data passing through services
 	 - __Microservice architecture__ (==request-driven==)
-	![[Pasted image 20250101170107.png|400]]
+	
 	 >[!caution]
 	 > Request-driven data passing is synchronous so if one service is down, requests are blocked
 - Data passing through real-time transport
 	- broker system, in memory storage to broker data
-	- ![[Pasted image 20250101170659.png|400]]
+	
 	- named event-driven
 	- pubsub (Apache Kafka, Amazon Kinesis) & queue (Apache RocketMQ, RabbitMQ)
 
