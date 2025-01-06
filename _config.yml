@@ -3,6 +3,8 @@ markdown: GFM
 highlighter: none
 gems:
   - jekyll-mermaid
+include:
+  - _notes
 collections:
   notes:
     output: true
