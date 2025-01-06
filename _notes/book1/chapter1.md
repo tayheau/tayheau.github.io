@@ -1,8 +1,7 @@
 ---
 title: "Chapter 1: The Beginning"
-layout: book
-permalink: /books/book1/chapter1/
 book: /books/book1/
+layout: book
 ---
 # Chapter 1: The Beginning
 
