@@ -13,23 +13,19 @@
       color: #333333;
       line-height: 1.6;
     }
-
     a {
       color: #0078d7;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     a:hover {
       color: #005a9e;
     }
-
     /* Layout Styling */
     .honkit-layout {
       display: flex;
       height: 100vh;
     }
-
     .sidebar {
       width: 25%;
       background-color: #f4f4f4;
@@ -37,7 +33,6 @@
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       overflow-y: auto;
     }
-
     .sidebar h2 {
       margin-top: 0;
       color: #333333;
@@ -45,17 +40,14 @@
       border-bottom: 2px solid #0078d7;
       padding-bottom: 10px;
     }
-
     .sidebar ul {
       list-style: none;
       padding: 0;
       margin: 20px 0 0;
     }
-
     .sidebar ul li {
       margin-bottom: 15px;
     }
-
     .sidebar ul li a {
       display: block;
       padding: 8px 12px;
@@ -64,41 +56,38 @@
       color: #333333;
       border: 1px solid #ddd;
     }
-
+    .sidebar ul li a.active {
+      background-color: #0078d7;
+      color: #ffffff;
+      border-color: #0078d7;
+    }
     .sidebar ul li a:hover {
       background-color: #f0f0f0;
     }
-
     .content {
       flex: 1;
       padding: 40px;
       overflow-y: auto;
     }
-
     .content h1 {
       color: #0078d7;
       font-size: 2rem;
       margin-top: 0;
     }
-
     .content p {
       margin-bottom: 1rem;
     }
-
     /* Scrollbar Styling */
     ::-webkit-scrollbar {
       width: 8px;
     }
-
     ::-webkit-scrollbar-track {
       background: #f4f4f4;
     }
-
     ::-webkit-scrollbar-thumb {
       background: #0078d7;
       border-radius: 4px;
     }
-
     ::-webkit-scrollbar-thumb:hover {
       background: #005a9e;
     }
@@ -109,25 +98,23 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <h2>
-        {% assign book_index = site.notes | where: "permalink", page.book %}
-        {% if book_index.size > 0 %}
-          {{ book_index.first.title }}
+        {% if page.book_title %}
+          {{ page.book_title }}
         {% else %}
-          Untitled Book
+          {{ site.title }}
         {% endif %}
       </h2>
       <ul>
-        {% assign book_path = page.book %}
-        {% for note in site.notes %}
-          {% if note.book == page.book and note.path != page.path %}
-            <li><a href="{{ note.url }}">{{ note.title }}</a></li>
-          {% endif %}
+        {% assign sorted_notes = site.notes | where: "book", page.book | sort: "chapter_number" %}
+        {% for note in sorted_notes %}
+          <li>
+            <a href="{{ note.url | relative_url }}" {% if page.url == note.url %}class="active"{% endif %}>
+              {% if note.chapter_number %}Chapter {{ note.chapter_number }}: {% endif %}{{ note.title }}
+            </a>
+          </li>
         {% endfor %}
       </ul>
     </aside>
-
-    </aside>
-
     <!-- Main Content -->
     <main class="content">
       {{ content }}
