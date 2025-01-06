@@ -1,8 +1,7 @@
 ---
 title: "Chapter 2: Exploring the Unknown"
+book: "/notes/book1/"
 layout: book
-permalink: /books/book1/chapter2/
-book: /books/book1/
 ---
 # Chapter 2: Exploring the Unknown
 
