@@ -6,6 +6,7 @@ type: "chapter"
 order: 8
 ---
 # Infrastructure & Tooling for MLOps
+---
 ![](/_medias/Pastedimage20250106010338.png)
 ## Storage & Compute Layer
 - all the compute ressources a company has access to and the mechanisms to determine how theses ressources can be used
