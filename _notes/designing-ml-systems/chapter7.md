@@ -6,6 +6,7 @@ type: "chapter"
 order: 7
 ---
 # Continual Learning & Test in Production
+---
 ## Continual Learning
 champion VS challenger model
 - __stateless retraining__: retraining the model from scratch each time
