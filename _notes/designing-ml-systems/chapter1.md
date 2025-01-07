@@ -11,7 +11,7 @@ order: 1
 
 - __input data__  : generally comes from user, can be dirty
 - __system generated data__ : includes various types of logs and systems output.
-	>[!caution] 
+	> **Caution** 
 	> - logs are noizy -> hard to find signal (Logstash, Datadog, Log2.io)
 	> - store large amount of data -> low-access / high-frequency access storage
 - __intern data base__
