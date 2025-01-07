@@ -14,13 +14,8 @@ order: 1
 	> **Caution**
 	> - logs are noizy -> hard to find signal (Logstash, Datadog, Log2.io)
 	> - store large amount of data -> low-access / high-frequency access storage
-	{: .block-caution}
 - __intern data base__
 - __thrid party data__
-> **Caution**
-> - logs are noizy -> hard to find signal (Logstash, Datadog, Log2.io)
-> - store large amount of data -> low-access / high-frequency access storage
-{: .block-caution}
 
 ## Data Formats
 
