@@ -6,6 +6,7 @@ type: "chapter"
 order: 5
 ---
 # Model Deployment
+---
 ## Batch prediction VS Online prediction 
 ### ML Deployment Myths
 - you only deploy one or two models at a time
