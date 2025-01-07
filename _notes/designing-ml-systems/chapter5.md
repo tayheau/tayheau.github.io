@@ -14,11 +14,11 @@ order: 5
 - most ML Engineers don't need to worry about scale
 
 ### Batch prediction
-![[Pasted image 20250104193827.png|400]]
+![](/_medias/Pastedimage20250104193827.png)
 ### Online prediction using batch features
-![[Pasted image 20250104194201.png|400]]
+![](/_medias/Pastedimage20250104194201.png)
 ### Online Prediction (Streaming)
-![[Pasted image 20250104194821.png|400]]
+![](/_medias/Pastedimage20250104194821.png)
 
 ## Model Compression
 - low rank factorization, e.g : compact conv filters
