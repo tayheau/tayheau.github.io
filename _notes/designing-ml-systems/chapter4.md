@@ -10,7 +10,7 @@ order: 4
 ### Ensembles
 - bagging:
 	good with unstable methods
-	![[Pasted image 20250104174625.png|400]]
+	![](/_medias/Pastedimage20250104174625.png)
 - boosting
 - stacking
 ### Experiment Tracking & Versionning
