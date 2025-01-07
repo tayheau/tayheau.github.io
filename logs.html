@@ -15,7 +15,7 @@ layout: logs
   {% for note in site.notes %}
     {% if note.path contains 'index.md' %}
       <li>
-        <a href="{{ note.url }}">{{ note.title }}</a>
+        <a href="{{ note.url }}">[Study Notes]{{ note.title }}</a>
       </li>
     {% endif %}
   {% endfor %}
