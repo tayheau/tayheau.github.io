@@ -59,12 +59,12 @@ Transactionnal VS Analytical Processing
 - Data passing through databases
 - Data passing through services
 	 - __Microservice architecture__ (==request-driven==)
-	![[Pasted image 20250101170107.png|400]]
+	[request-driven architecture](/_medias/Pasted image 20250101170107.png)
 >[!caution]
 > Request-driven data passing is synchronous so if one service is down, requests are blocked
 - Data passing through real-time transport
 	- broker system, in memory storage to broker data
-	- ![[Pasted image 20250101170659.png|400]]
+	- [broker-based architecture](/_medias/Pasted image 20250101170659.png)
 	- named event-driven
 	- pubsub (Apache Kafka, Amazon Kinesis) & queue (Apache RocketMQ, RabbitMQ)
 
