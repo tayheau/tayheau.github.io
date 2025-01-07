@@ -6,6 +6,7 @@ type: "chapter"
 order: 2
 ---
 # Training Data
+---
 ## Sampling
 ### Non Probability Sampling
 - convenience sampling : based on availability of the data
