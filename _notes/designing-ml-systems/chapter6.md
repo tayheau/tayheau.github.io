@@ -5,6 +5,8 @@ book: "designing-ml-systems"
 type: "chapter"
 order: 6
 ---
+# Data Distribution Shifts & Monitoring
+---
 ## Causes of the ML System failures
 operational expectation violation & ML performance expectation violation 
 ## Software system failures
