@@ -6,6 +6,7 @@ type: "chapter"
 order: 3
 ---
 # Feature Engineering
+---
 ## Common feature engineering operations
 - __Handling Missing Values__:
 	- (MNAR) Missing Not At Random : missing because of the value itself
