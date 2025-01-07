@@ -110,7 +110,7 @@
           {% for chapter in chapters %}
             <li>
               <a href="{{ chapter.url | relative_url }}" {% if page.url == chapter.url %}class="active"{% endif %}>
-                {{ chapter.title }}
+                {{ chapter.order }} {{ chapter.title }}
               </a>
               {% if chapter.has_subsections %}
                 <ul>
