@@ -6,6 +6,7 @@ type: "chapter"
 order: 9
 ---
 # Human Side of ML
+---
 smooth failing
 ## Team Structure 
 cross functional teams collaboration, SMEs(Subject Matter Expertise)
