@@ -5,6 +5,7 @@ plugins:
   - jekyll-mermaid
 include:
   - _notes
+  - _medias
 collections:
   notes:
     output: true
