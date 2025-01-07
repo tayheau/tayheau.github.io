@@ -73,9 +73,9 @@ label the samples that are the most helpful to your model according to some metr
 
 ## Class Imbalance
 Accuracy is not the "holy" metric, it can be misleading in a context of data imbalance.
-![[Pasted image 20250101174751.png]]
+![](/_medias/Pastedimage20250101174751.png)
 ### ROC Curve
-![[Pasted image 20250101174837.png]]
+![](/_medias/Pastedimage20250101174837.png)
 ### Resampling
 good for low dim data :
 - undersampling (e.g : Tomek links)
