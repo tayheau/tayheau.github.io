@@ -9,7 +9,6 @@
         margin: 0;
         box-sizing: border-box;
     }
-
     :root {
         --bg-color: #161617;
         --text-color: white;
@@ -17,7 +16,6 @@
         --link-hover-color: rgb(100, 100, 100);
         --muted-text: rgb(63, 68, 68);
     }
-
     body {
         font-family: "IBM Plex Mono", monospace;
         font-weight: 400;
@@ -32,16 +30,13 @@
         padding: 1rem;
         line-height: 1.6;
     } 
-
     #container {
         width: 100%;
         max-width: 800px;
     }
-
     p {
         color: var(--lnk-color);
     }
-
     pre {
         font-size: 0.56em;
         color: var(--muted-text);
@@ -52,57 +47,46 @@
         white-space: pre-wrap;
         word-wrap: break-word;
     }
-
     a {
         text-decoration: none;
         color: var(--link-color);
         transition: color 0.3s ease;
     }
-
     a:hover {
         color: var(--link-hover-color);
     }
-
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 1rem;
     }
-
     th, td {
         padding: 0.5rem;
         text-align: left;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-
     #doom {
         height: 16px;
         margin-right: 0.5rem;
     }
-
     @media screen and (max-width: 768px) {
         body {
             margin-top: 5vh;
         }
-
         table {
             font-size: 0.9rem;
         }
-
         th, td {
             padding: 0.3rem;
         }
     }
-
     @media screen and (max-width: 480px) {
         body {
             margin-top: 2vh;
         }
-
         table {
             font-size: 0.8rem;
         }
-
         th, td {
             padding: 0.2rem;
         }
