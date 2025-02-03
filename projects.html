@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tayheau - projects</title>
-    <style>
+     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
         * {
@@ -15,7 +15,7 @@
         :root {
             --bg-color: #161617;
             --text-color: white;
-            --lnk-color: rgb(174, 174, 174);
+            --link-color: rgb(174, 174, 174);
             --link-hover-color: rgb(100, 100, 100);
             --muted-text: #808080;
         }
@@ -26,26 +26,23 @@
             font-style: normal;
             color: var(--text-color);
             background-color: var(--bg-color);
+            margin-top: 10em;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding: 2rem 1rem;
-            line-height: 1.6;
-        }
-
-        #container {
-            width: 100%;
-            max-width: 800px;
+            align-items: center;
         }
 
         h2 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 1em;
+        }
+
+        #container {
+            width: 50em;
         }
 
         a {
             text-decoration: none;
-            color: var(--lnk-color);
+            color: var(--link-color);
             transition: color 0.3s ease;
         }
 
@@ -53,15 +50,16 @@
             color: var(--link-hover-color);
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        li a {
+            color: white;
+        }
+
+        li span {
+            color: var(--muted-text);
         }
 
         li {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 0.5em;
         }
 
         li div {
@@ -69,27 +67,19 @@
             flex-direction: column;
         }
 
-        li a {
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-        }
-
-        li span {
-            color: var(--muted-text);
-            font-size: 0.9rem;
-        }
-
         @media screen and (max-width: 768px) {
+            body {
+                margin-top: 5em;
+            }
+
             #container {
                 width: 95%;
             }
+        }
 
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            li span {
-                font-size: 0.8rem;
+        @media screen and (max-width: 480px) {
+            body {
+                margin-top: 2em;
             }
         }
     </style>
