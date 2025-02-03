@@ -12,55 +12,85 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-color: #161617;
+            --text-color: white;
+            --link-color: rgb(174, 174, 174);
+            --link-hover-color: rgb(100, 100, 100);
+            --muted-text: #808080;
+        }
+
         body {
             font-family: "IBM Plex Mono", monospace;
             font-weight: 400;
             font-style: normal;
-            color: white;
-            background-color: #161617;
-            margin-top: 10em;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             display: flex;
             justify-content: center;
-            align-items: center;
-        }
-
-        h2 {
-            margin-bottom: 1em;
-        }
-
-        #nav {
-            display: flex;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            padding: 2rem 1rem;
+            line-height: 1.6;
         }
 
         #container {
-            width: 50em;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         a {
             text-decoration: none;
-            color: rgb(174, 174, 174);
+            color: var(--link-color);
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: rgb(100, 100, 100);
+            color: var(--link-hover-color);
         }
 
-        li a {
-            color: white;
-        }
-
-        li span {
-            color: #808080;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
 
         li {
-            margin-bottom: 0.5em;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         li div {
             display: flex;
             flex-direction: column;
+        }
+
+        li a {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        li span {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            #container {
+                width: 95%;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            li span {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
