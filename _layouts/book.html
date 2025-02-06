@@ -9,17 +9,6 @@
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
     
     :root {
-      /* Light theme variables */<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-    
-    :root {
       /* Light theme variables */
       --background-light: #ffffff;
       --text-light: #333333;
@@ -36,7 +25,7 @@
       --link-dark: #ae9ec9;
       --hover-dark: #8a7aa3;
     }
-
+    
     [data-theme="light"] {
       --background: var(--background-light);
       --text: var(--text-light);
@@ -45,7 +34,7 @@
       --link: var(--link-light);
       --hover: var(--hover-light);
     }
-
+    
     [data-theme="dark"] {
       --background: var(--background-dark);
       --text: var(--text-dark);
@@ -54,12 +43,12 @@
       --link: var(--link-dark);
       --hover: var(--hover-dark);
     }
-
+    
     * {
       margin: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       margin: 0;
       font-family: "IBM Plex Mono", monospace;
@@ -67,31 +56,31 @@
       background-color: var(--background);
       line-height: 1.6;
     }
-
+    
     img {
       width: -webkit-fill-available;
       max-width: 700px;
       display: block;
     }
-
+    
     blockquote {
       border-left: 4px solid #808080;
       padding: 1em;
       margin: 1em 0;
       background-color: rgba(128, 128, 128, 0.1);
     }
-
+    
     blockquote:has(:first-child:contains("Caution")),
     blockquote:has(:first-child:contains("**Caution**")) {
       border-left: 4px solid #ff5555;
       background-color: rgba(255, 85, 85, 0.1);
     }
-
+    
     .honkit-layout {
       display: flex;
       height: 100vh;
     }
-
+    
     .sidebar {
       width: 300px;
       background-color: var(--sidebar-bg);
@@ -99,7 +88,7 @@
       overflow-y: auto;
       padding-bottom: 20px;
     }
-
+    
     .theme-switch {
       padding: 10px 15px;
       display: flex;
@@ -107,7 +96,7 @@
       justify-content: space-between;
       border-bottom: 1px solid var(--border);
     }
-
+    
     .theme-switch button {
       background: none;
       border: 1px solid var(--border);
@@ -117,26 +106,26 @@
       cursor: pointer;
       font-family: inherit;
     }
-
+    
     .theme-switch button:hover {
       background-color: var(--border);
     }
-
+    
     .theme-switch a {
       color: var(--text);
       text-decoration: none;
     }
-
+    
     .theme-switch a:hover {
       color: var(--hover);
     }
-
+    
     .sidebar-search {
       padding: 20px 15px;
       border-bottom: 1px solid var(--border);
       background-color: var(--background);
     }
-
+    
     .sidebar-search input {
       width: 100%;
       padding: 8px;
@@ -146,27 +135,27 @@
       background-color: var(--background);
       color: var(--text);
     }
-
+    
     .sidebar-search input:focus {
       outline: none;
       border-color: var(--link);
     }
-
+    
     .sidebar-nav {
       padding: 20px 0;
     }
-
+    
     .sidebar-nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
+    
     .sidebar-nav li {
       margin: 0;
       padding: 0;
     }
-
+    
     .sidebar-nav a {
       display: block;
       padding: 8px 20px;
@@ -175,36 +164,36 @@
       font-size: 14px;
       transition: background-color 0.2s;
     }
-
+    
     .sidebar-nav a:hover {
       color: var(--hover);
     }
-
+    
     .sidebar-nav a.active {
       color: var(--link);
     }
-
+    
     .sidebar-nav ul ul a { padding-left: 40px; }
     .sidebar-nav ul ul ul a { padding-left: 60px; }
     .sidebar-nav ul ul ul ul a { padding-left: 80px; }
-
+    
     .content {
       flex: 1;
       padding: 5em 10em;
       overflow-y: auto;
     }
-
+    
     .content h1 {
       font-size: 2.5rem;
       margin-top: 0;
       margin-bottom: 1rem;
       font-weight: 500;
     }
-
+    
     .content p {
       margin-bottom: 1rem;
     }
-
+    
     .content h2 {
       margin-top: 2rem;
     }
@@ -214,17 +203,17 @@
       border-collapse: collapse;
       margin: 1em 0;
     }
-
+    
     th, td {
       border: 1px solid var(--border);
       padding: 8px;
       text-align: left;
     }
-
+    
     th {
       background-color: var(--sidebar-bg);
     }
-
+    
     /* Sidebar Toggle Button – hidden by default on larger screens */
     #sidebarToggle {
       display: none;
@@ -269,8 +258,9 @@
       }
     }
     
+    /* Adjust font size and padding for very small devices */
     @media (max-width: 450px) {
-      body { font-size: 1.5vw; }
+      body { font-size: 16px; }
       img { width: 90vw; }
       .content { padding: 2em; }
     }
@@ -377,373 +367,3 @@
   </script>
 </body>
 </html>
-
-      --background-light: #ffffff;
-      --text-light: #333333;
-      --sidebar-bg-light: #f8f8f8;
-      --border-light: #e6e6e6;
-      --link-light: #007bff;
-      --hover-light: #0056b3;
-      
-      /* Dark theme variables */
-      --background-dark: #161617;
-      --text-dark: #ffffff;
-      --sidebar-bg-dark: #1e1e1f;
-      --border-dark: #2d2d2e;
-      --link-dark: #ae9ec9;
-      --hover-dark: #8a7aa3;
-    }
-
-    [data-theme="light"] {
-      --background: var(--background-light);
-      --text: var(--text-light);
-      --sidebar-bg: var(--sidebar-bg-light);
-      --border: var(--border-light);
-      --link: var(--link-light);
-      --hover: var(--hover-light);
-    }
-
-    [data-theme="dark"] {
-      --background: var(--background-dark);
-      --text: var(--text-dark);
-      --sidebar-bg: var(--sidebar-bg-dark);
-      --border: var(--border-dark);
-      --link: var(--link-dark);
-      --hover: var(--hover-dark);
-    }
-
-    * {
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "IBM Plex Mono", monospace;
-      color: var(--text);
-      background-color: var(--background);
-      line-height: 1.6;
-    }
-    
-    /* Adjust font size for mobile devices */
-    @media (max-width: 768px) {
-      body {
-        font-size: 16px;
-      }
-    }
-    @media (min-width: 769px) {
-      body {
-        font-size: 18px;
-      }
-    }
-
-    img {
-      width: -webkit-fill-available;
-      max-width: 700px;
-      display: block;
-    }
-
-    blockquote {
-      border-left: 4px solid #808080;
-      padding: 1em;
-      margin: 1em 0;
-      background-color: rgba(128, 128, 128, 0.1);
-    }
-
-    blockquote:has(:first-child:contains("Caution")),
-    blockquote:has(:first-child:contains("**Caution**")) {
-      border-left: 4px solid #ff5555;
-      background-color: rgba(255, 85, 85, 0.1);
-    }
-
-    .honkit-layout {
-      display: flex;
-      height: 100vh;
-      position: relative;
-    }
-
-    /* Sidebar styles */
-    .sidebar {
-      background-color: var(--sidebar-bg);
-      border-right: 1px solid var(--border);
-      overflow-y: auto;
-      padding-bottom: 20px;
-      transition: transform 0.3s ease, width 0.3s ease;
-    }
-
-    /* Desktop: sidebar defaults */
-    @media (min-width: 769px) {
-      .sidebar {
-        width: 300px;
-        transform: translateX(0);
-        position: relative;
-      }
-      /* When toggled closed, remove the "open" class */
-      .sidebar:not(.open) {
-        transform: translateX(-300px);
-        position: absolute;
-        width: 300px;
-      }
-      .content {
-        flex: 1;
-        transition: margin-left 0.3s ease;
-        margin-left: 300px;
-      }
-      /* Add .full-width class to content when sidebar is hidden */
-      .content.full-width {
-        margin-left: 0;
-      }
-    }
-
-    /* Mobile: sidebar is off-canvas */
-    @media (max-width: 768px) {
-      .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 250px;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-      }
-      .content {
-        padding: 1em;
-      }
-    }
-
-    .theme-switch {
-      padding: 10px 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .theme-switch button {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .theme-switch button:hover {
-      background-color: var(--border);
-    }
-
-    .theme-switch a {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .theme-switch a:hover {
-      color: var(--hover);
-    }
-
-    .sidebar-search {
-      padding: 20px 15px;
-      border-bottom: 1px solid var(--border);
-      background-color: var(--background);
-    }
-
-    .sidebar-search input {
-      width: 100%;
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      background-color: var(--background);
-      color: var(--text);
-    }
-
-    .sidebar-search input:focus {
-      outline: none;
-      border-color: var(--link);
-    }
-
-    .sidebar-nav {
-      padding: 20px 0;
-    }
-
-    .sidebar-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar-nav li {
-      margin: 0;
-      padding: 0;
-    }
-
-    .sidebar-nav a {
-      display: block;
-      padding: 8px 20px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      transition: background-color 0.2s;
-    }
-
-    .sidebar-nav a:hover {
-      color: var(--hover);
-    }
-
-    .sidebar-nav a.active {
-      color: var(--link);
-    }
-
-    .sidebar-nav ul ul a { padding-left: 40px; }
-    .sidebar-nav ul ul ul a { padding-left: 60px; }
-    .sidebar-nav ul ul ul ul a { padding-left: 80px; }
-
-    .content {
-      flex: 1;
-      padding: 5em 10em;
-      overflow-y: auto;
-    }
-
-    .content h1 {
-      font-size: 2.5rem;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-
-    .content p {
-      margin-bottom: 1rem;
-    }
-
-    .content h2 {
-      margin-top: 2rem;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1em 0;
-    }
-
-    th, td {
-      border: 1px solid var(--border);
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: var(--sidebar-bg);
-    }
-
-    /* Toggle button: always visible */
-    #sidebarToggle {
-      display: block;
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      z-index: 1100;
-    }
-    
-    @media (max-width: 450px) {
-      img { width: 90vw; }
-      .content { padding: 2em; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Sidebar toggle button always visible -->
-  <button id="sidebarToggle" aria-label="Toggle sidebar">&#9776;</button>
-  
-  <div class="honkit-layout">
-    <aside class="sidebar open">
-      <div class="theme-switch">
-        <span><a href="/logs.html">< logs</a></span>
-        <button id="theme-toggle">Toggle Theme</button>
-      </div>
-      <div class="sidebar-search">
-        <input type="text" placeholder="Type to search">
-      </div>
-      <nav class="sidebar-nav">
-        <ul>
-          {% assign current_book_notes = site.notes | where: "book", page.book %}
-          {% assign index_file = current_book_notes | where_exp: "item", "item.path contains 'index.md'" | first %}          
-          {% if index_file %}
-          <li>
-            <a href="{{ index_file.url | relative_url }}" {% if page.url == index_file.url %}class="active"{% endif %}>
-              {{ index_file.book_title | default: index_file.title }}
-            </a>
-          </li>
-          {% endif %}          
-          {% assign chapters = current_book_notes | where: "type", "chapter" | sort: "order" %}
-          {% for chapter in chapters %}
-            <li>
-              <a href="{{ chapter.url | relative_url }}" {% if page.url == chapter.url %}class="active"{% endif %}>
-                Chapter {{ chapter.order }}. {{ chapter.title }}
-              </a>
-              {% if chapter.has_subsections %}
-                <ul>
-                  {% assign subsections = current_book_notes | where: "type", "subsection" | where: "chapter", chapter.identifier | sort: "order" %}
-                  {% for subsection in subsections %}
-                    <li>
-                      <a href="{{ subsection.url | relative_url }}" {% if page.url == subsection.url %}class="active"{% endif %}>
-                        {{ subsection.title }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </aside>
-    <main class="content">
-      {{ content }}
-    </main>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
-    });
-  </script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']]
-      }
-    };
-    
-    // Theme switcher functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    
-    // Check for saved theme preference, otherwise use system preference
-    const savedTheme = localStorage.getItem('theme') || 
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    html.setAttribute('data-theme', savedTheme);
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Update Mermaid theme accordingly
-      mermaid.initialize
