@@ -25,7 +25,7 @@
       --link-dark: #ae9ec9;
       --hover-dark: #8a7aa3;
     }
-    
+
     [data-theme="light"] {
       --background: var(--background-light);
       --text: var(--text-light);
@@ -34,7 +34,7 @@
       --link: var(--link-light);
       --hover: var(--hover-light);
     }
-    
+
     [data-theme="dark"] {
       --background: var(--background-dark);
       --text: var(--text-dark);
@@ -43,12 +43,12 @@
       --link: var(--link-dark);
       --hover: var(--hover-dark);
     }
-    
+
     * {
       margin: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       margin: 0;
       font-family: "IBM Plex Mono", monospace;
@@ -56,31 +56,31 @@
       background-color: var(--background);
       line-height: 1.6;
     }
-    
+
     img {
       width: -webkit-fill-available;
       max-width: 700px;
       display: block;
     }
-    
+
     blockquote {
       border-left: 4px solid #808080;
       padding: 1em;
       margin: 1em 0;
       background-color: rgba(128, 128, 128, 0.1);
     }
-    
+
     blockquote:has(:first-child:contains("Caution")),
     blockquote:has(:first-child:contains("**Caution**")) {
       border-left: 4px solid #ff5555;
       background-color: rgba(255, 85, 85, 0.1);
     }
-    
+
     .honkit-layout {
       display: flex;
       height: 100vh;
     }
-    
+
     .sidebar {
       width: 300px;
       background-color: var(--sidebar-bg);
@@ -88,7 +88,7 @@
       overflow-y: auto;
       padding-bottom: 20px;
     }
-    
+
     .theme-switch {
       padding: 10px 15px;
       display: flex;
@@ -96,7 +96,7 @@
       justify-content: space-between;
       border-bottom: 1px solid var(--border);
     }
-    
+
     .theme-switch button {
       background: none;
       border: 1px solid var(--border);
@@ -106,26 +106,17 @@
       cursor: pointer;
       font-family: inherit;
     }
-    
+
     .theme-switch button:hover {
       background-color: var(--border);
     }
-    
-    .theme-switch a {
-      color: var(--text);
-      text-decoration: none;
-    }
-    
-    .theme-switch a:hover {
-      color: var(--hover);
-    }
-    
+
     .sidebar-search {
       padding: 20px 15px;
       border-bottom: 1px solid var(--border);
       background-color: var(--background);
     }
-    
+
     .sidebar-search input {
       width: 100%;
       padding: 8px;
@@ -135,27 +126,27 @@
       background-color: var(--background);
       color: var(--text);
     }
-    
+
     .sidebar-search input:focus {
       outline: none;
       border-color: var(--link);
     }
-    
+
     .sidebar-nav {
       padding: 20px 0;
     }
-    
+
     .sidebar-nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    
+
     .sidebar-nav li {
       margin: 0;
       padding: 0;
     }
-    
+
     .sidebar-nav a {
       display: block;
       padding: 8px 20px;
@@ -164,36 +155,36 @@
       font-size: 14px;
       transition: background-color 0.2s;
     }
-    
+
     .sidebar-nav a:hover {
       color: var(--hover);
     }
-    
+
     .sidebar-nav a.active {
       color: var(--link);
     }
-    
+
     .sidebar-nav ul ul a { padding-left: 40px; }
     .sidebar-nav ul ul ul a { padding-left: 60px; }
     .sidebar-nav ul ul ul ul a { padding-left: 80px; }
-    
+
     .content {
       flex: 1;
       padding: 5em 10em;
       overflow-y: auto;
     }
-    
+
     .content h1 {
       font-size: 2.5rem;
       margin-top: 0;
       margin-bottom: 1rem;
       font-weight: 500;
     }
-    
+
     .content p {
       margin-bottom: 1rem;
     }
-    
+
     .content h2 {
       margin-top: 2rem;
     }
@@ -203,73 +194,25 @@
       border-collapse: collapse;
       margin: 1em 0;
     }
-    
+
     th, td {
       border: 1px solid var(--border);
       padding: 8px;
       text-align: left;
     }
-    
+
     th {
       background-color: var(--sidebar-bg);
     }
-    
-    /* Sidebar Toggle Button – hidden by default on larger screens */
-    #sidebarToggle {
-      display: none;
-    }
-    
-    /* Responsive adjustments for devices with widths up to 768px */
-    @media (max-width: 768px) {
-      .honkit-layout {
-        flex-direction: column;
-        height: auto;
-      }
-      .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 250px;
-        background-color: var(--sidebar-bg);
-        border-right: 1px solid var(--border);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-      }
-      .content {
-        padding: 1em;
-      }
-      #sidebarToggle {
-        display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        background: none;
-        border: 1px solid var(--border);
-        color: var(--text);
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        z-index: 1100;
-      }
-    }
-    
-    /* Adjust font size and padding for very small devices */
+
     @media (max-width: 450px) {
-      body { font-size: 16px; }
+      body { font-size: 1.5vw; }
       img { width: 90vw; }
       .content { padding: 2em; }
     }
   </style>
 </head>
 <body>
-  <!-- Sidebar toggle button for mobile -->
-  <button id="sidebarToggle" aria-label="Toggle sidebar">&#9776;</button>
-  
   <div class="honkit-layout">
     <aside class="sidebar">
       <div class="theme-switch">
@@ -333,7 +276,7 @@
         inlineMath: [['\\(', '\\)']]
       }
     };
-    
+
     // Theme switcher functionality
     const themeToggle = document.getElementById('theme-toggle');
     const html = document.documentElement;
@@ -355,14 +298,6 @@
         startOnLoad: true,
         theme: newTheme === 'dark' ? 'dark' : 'default'
       });
-    });
-    
-    // Sidebar toggle functionality for mobile
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    const sidebar = document.querySelector('.sidebar');
-    
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
     });
   </script>
 </body>
