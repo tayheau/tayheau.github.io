@@ -56,6 +56,18 @@
       background-color: var(--background);
       line-height: 1.6;
     }
+    
+    /* Adjust font size for mobile devices */
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+    }
+    @media (min-width: 769px) {
+      body {
+        font-size: 18px;
+      }
+    }
 
     img {
       width: -webkit-fill-available;
@@ -79,14 +91,60 @@
     .honkit-layout {
       display: flex;
       height: 100vh;
+      position: relative;
     }
 
+    /* Sidebar styles */
     .sidebar {
-      width: 300px;
       background-color: var(--sidebar-bg);
       border-right: 1px solid var(--border);
       overflow-y: auto;
       padding-bottom: 20px;
+      transition: transform 0.3s ease, width 0.3s ease;
+    }
+
+    /* Desktop: sidebar defaults */
+    @media (min-width: 769px) {
+      .sidebar {
+        width: 300px;
+        transform: translateX(0);
+        position: relative;
+      }
+      /* When toggled closed, remove the "open" class */
+      .sidebar:not(.open) {
+        transform: translateX(-300px);
+        position: absolute;
+        width: 300px;
+      }
+      .content {
+        flex: 1;
+        transition: margin-left 0.3s ease;
+        margin-left: 300px;
+      }
+      /* Add .full-width class to content when sidebar is hidden */
+      .content.full-width {
+        margin-left: 0;
+      }
+    }
+
+    /* Mobile: sidebar is off-canvas */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 250px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .content {
+        padding: 1em;
+      }
     }
 
     .theme-switch {
@@ -214,63 +272,33 @@
       background-color: var(--sidebar-bg);
     }
 
-    /* Sidebar Toggle Button – hidden by default on larger screens */
+    /* Toggle button: always visible */
     #sidebarToggle {
-      display: none;
-    }
-    
-    /* Responsive adjustments for devices with widths up to 768px */
-    @media (max-width: 768px) {
-      .honkit-layout {
-        flex-direction: column;
-        height: auto;
-      }
-      .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 250px;
-        background-color: var(--sidebar-bg);
-        border-right: 1px solid var(--border);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-      }
-      .content {
-        padding: 1em;
-      }
-      #sidebarToggle {
-        display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        background: none;
-        border: 1px solid var(--border);
-        color: var(--text);
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        z-index: 1100;
-      }
+      display: block;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1100;
     }
     
     @media (max-width: 450px) {
-      body { font-size: 1.5vw; }
       img { width: 90vw; }
       .content { padding: 2em; }
     }
   </style>
 </head>
 <body>
-  <!-- Sidebar toggle button for mobile -->
+  <!-- Sidebar toggle button always visible -->
   <button id="sidebarToggle" aria-label="Toggle sidebar">&#9776;</button>
   
   <div class="honkit-layout">
-    <aside class="sidebar">
+    <aside class="sidebar open">
       <div class="theme-switch">
         <span><a href="/logs.html">< logs</a></span>
         <button id="theme-toggle">Toggle Theme</button>
@@ -349,20 +377,5 @@
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
-      // Update Mermaid theme
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: newTheme === 'dark' ? 'dark' : 'default'
-      });
-    });
-    
-    // Sidebar toggle functionality for mobile
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    const sidebar = document.querySelector('.sidebar');
-    
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-    });
-  </script>
-</body>
-</html>
+      // Update Mermaid theme accordingly
+      mermaid.initialize
