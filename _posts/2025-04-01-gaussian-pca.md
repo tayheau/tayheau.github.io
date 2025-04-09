@@ -7,13 +7,12 @@ layout: post
 Multiples hidden Markov models can be seen as variants of one underlying generative model : discrete time linear dynamical systems with Gaussian Noise[^1] .
 A so named system is defined by :
 
-$$ 
-\begin{aligned}
+$$ \begin{align}
 \mathbf{x}_{t+1} &= \mathbf{A}\mathbf{x}_t + \mathbf{w}_t = \mathbf{A}\mathbf{x}_t + \mathbf{w}_\bullet & \mathbf{w}_\bullet \sim \mathcal{N}(0, \mathbf{Q}) \tag{1a} \\
 
 \mathbf{y}_t &= \mathbf{C}\mathbf{x}_t + \mathbf{v}_t = \mathbf{C}\mathbf{x}_t + \mathbf{v}_\bullet & \mathbf{v}_\bullet \sim \mathcal{N}(0, \mathbf{R}) \tag{1b}
-\end{aligned}
-$$
+\end{align}$$
+
 where, we resume the main goal *first-order Gaussian-Markov random process* $\mathbf{x}_t$ to be an informative lower dimensional projection of the *observation sequence* $\mathbf{y}_t$.
 We also define the gaussian noise to be 0 mean without loss of generality [^1]$
 
