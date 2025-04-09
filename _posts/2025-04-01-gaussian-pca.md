@@ -1,6 +1,6 @@
 ---
 title: "PCA, but probabilistic"
-date: 2025-04-10
+date: 2025-04-01
 layout: post
 ---
 
