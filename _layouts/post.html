@@ -105,23 +105,7 @@
 		}
 	}
 
-        /* MathJax specific styling */
-        .MathJax {
-            overflow-x: auto;
-            max-width: 100%;
-        }
 
-        .MathJax_Display {
-            overflow-x: auto;
-            max-width: 100%;
-            scrollbar-width: thin;
-        }
-        
-        /* Allow horizontal scrolling for long equations */
-        .mjx-container {
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
     </style>
 </head>
 <body>
@@ -137,41 +121,20 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-<script>
-MathJax = {
-  tex: {
-    packages: ['base', 'ams', 'noerrors', 'noundefined'],
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    autoload: {
-      color: [],
-      colorV2: ['color']
-    },
-    tags: 'ams'  // Important for equation tagging like \tag{1a}
-  },
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams', '[tex]/noerrors', '[tex]/noundefined']
-  },
-  svg: {
-    fontCache: 'global'
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async 
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js">
-</script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script type="module">
 	import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 	mermaid.initialize({
 		startOnLoad: true,
 		theme: 'dark'
 	});
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']]
+  }
+};
 </script>
 </body>
 </html>
