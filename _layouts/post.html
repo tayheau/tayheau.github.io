@@ -132,7 +132,9 @@
 <script>
 MathJax = {
   tex: {
-    inlineMath: [['\\(', '\\)']]
+    packages: ['base', 'ams', 'noerrors', 'noundefined'],
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
   }
 };
 </script>
