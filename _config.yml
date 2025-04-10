@@ -1,5 +1,5 @@
 title: tayheau
-markdown: GFM
+markdown: kramdown
 highlighter: none
 plugins:
   - jekyll-mermaid
