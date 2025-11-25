@@ -3,90 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="ico" href="https://raw.githubusercontent.com/recalldude/recalldude.github.io/main/_medias/favicon.ico">
-    <title>tayheau</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-
-        * {
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "IBM Plex Mono", monospace;
-            font-weight: 400;
-            font-style: normal;
-            color: white;
-            background-color: #161617;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        } 
-
-        pre {
-            color: #bcc6db;
-            font-size: 0.25rem;
-            user-select: none;
-            margin-top: 1em;
-            margin-bottom: 1em;
-        }
-
-        #nav{
-            display: flex;
-        }
-
-        a {
-            text-decoration: none;
-            color: rgb(174, 174, 174);
-            margin-right:1em;
-        }
-
-        a:hover {
-            color: rgb(100, 100, 100);
-        }
-
-        @media (max-width: 850px) {
-            pre {
-                font-size: 2px;
-            }
-        }
-
-        @media (max-width: 450px) {
-            pre {
-                display: none;
-            }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
+    <title>telma - home</title>
 </head>
 <body>
-    <div id="container">
-        <h2>tayheau</h2>
-        <div id="nav">
-            <a href="https://github.com/tayheau">github/tayheau</a>
+    <div id="header">
+        <p id="title">telma</p>
+        <p id="cart">cart</p>
+    </div>
+    <p id="home-text">When i first encountered my wife, i knew she'll be my wife, i knew instantly i was never in love before since i was facing true love for the first time. I was lost and looking for my home and i found it. This furniture is just some furniture i wanted to make to celebrate our love. Take some if you want.</p>
+    <div id="corps">
+        <ul>
+            <li>all object</li>
+            <li>lampes</li>
+            <li>furnitures</li>
+            <li>the blabla</li>
+        </ul>
 
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">product</th>
+                    <th scope="col">price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row" class="hover_link">
+                        <a href="#">file standing lamp
+                            <span>
+                                <img src="./product_test.png" alt="product_test" height="300" />
+                                <div class="product-file">
+                                    <p class="name">dummy product name</p>
+                                    <p class="product-description">made this one with some metal, needed to hold the books of the appartment next to the couch. She really likes it.</p>
+                                    <p>colors</p>
+                                    <div class="colors">
+                                        <div class="box green"></div>
+                                        <div class="box metal"></div>
+                                        <div class="box ocean-blue"></div>
+                                        <div class="box pink"></div>
+                                    </div>
+                                </div>
+
+                            </span>
+                        </a>  
+                    </td>
+                    <td>450€</td>
+                </tr>
+                <tr>
+                    <td scope="row" class="hover_link">
+                        <a href=".">file table lamp
+                            <span>
+                                <img src="./dummy_2.png" alt="product_test" height="300" />
+                                <div class="product-file">
+                                    <p class="name">dummy product name</p>
+                                    <p class="product-description">made this one with some metal, needed to hold the books of the appartment next to the couch. She really likes it.</p>
+                                    <p>colors</p>
+                                    <div class="colors">
+                                        <div class="box green"></div>
+                                        <div class="box metal"></div>
+                                        <div class="box ocean-blue"></div>
+                                        <div class="box pink"></div>
+                                    </div>
+                                </div>
+                            </span>
+                        </a>
+                    </td>
+                    <td>125€</td>
+                </tr>
+                <tr>
+                    <td scope="row" class="hover_link">
+                        <a href=".">file zine holder
+                            <span>
+                                <img src="./dummy_3.png" alt="product_test" height="300" />
+                                <div class="product-file">
+                                    <p class="name">dummy product name</p>
+                                    <p class="product-description">made this one with some metal, needed to hold the books of the appartment next to the couch. She really likes it.</p>
+                                    <p>colors</p>
+                                    <div class="colors">
+                                        <div class="box green"></div>
+                                        <div class="box metal"></div>
+                                        <div class="box ocean-blue"></div>
+                                        <div class="box pink"></div>
+                                    </div>
+                                </div>
+                            </span>
+                        </a>
+                    </td>
+                    <td>95€</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="footer">
+        <div id="care">
+            <p>customer service</p>
+            <p>shippings</p>
+            <p>payments</p>
+            <p>terms & conditions</p>
+            <p>privacy policy</p>
         </div>
-
-        <pre id="ascii"></pre>
-
-        <div id="links">
-            <a href="./to_read.html">to_read</a>
-            <a href="./logs.html">logs</a>
-            <a href="./projects.html">projects</a>
+        <div id="contact">
+            <p>press</p>
+            <p>contact</p>
         </div>
     </div>
-
-    <script>
-        // JavaScript to load ASCII art from file
-        fetch('https://raw.githubusercontent.com/tayheau/tayheau.github.io/main/_medias/tetsuo_braille.txt')
-            .then(response => response.text())
-            .then(text => {
-                document.getElementById('ascii').textContent = text;
-            })
-            .catch(error => {
-                console.error('Error fetching ASCII art:', error);
-            });
-    </script>
 </body>
 </html>

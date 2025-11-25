@@ -1,0 +1,201 @@
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fafafc;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 10em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+td {
+    border-top: solid 1px black;
+}
+
+table {
+    width: 60em;
+}
+
+ul {
+    list-style-position: inside;
+    padding-top: 1em;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+}
+
+li {
+    font-style: italic;
+    font-weight: 300;
+}
+
+li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#title {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#home-text {
+    font-style: italic;
+    color: #0033ff;
+    font-size: small;
+    margin-bottom: 3em;
+    padding-right: 50%;
+    padding-bottom: 1em;
+    border-bottom: solid 1px black;
+}
+
+#corps {
+    display: flex;
+    justify-content: space-between;
+}
+
+#header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.hover_link a {
+    position: relative;
+    color: rgb(239, 149, 14);
+}
+
+.hover_link a:hover {
+    color: rgb(111, 69, 6);
+}
+
+.hover_link a span {
+    position: absolute;
+    max-height: 300px;
+    display: none;
+    z-index:99;
+    left: 120px;
+    bottom: 20px;
+    border: solid 1px black;
+    width: auto;
+}
+
+.hover_link a:hover span {
+    display: flex;
+}
+
+.hover_link a span pre {
+    color: black;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-weight: 300;
+}
+
+#cart {
+    border: solid 1px black;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+#cart:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black;
+}
+
+#cart:active {
+    box-shadow: inset 1px 1px 1px black;
+}
+
+#more {
+    color: #0033ff;
+    font-size: 10em;
+    font-weight: bold;
+}
+
+#footer {
+    margin-top: auto;
+    border-top: solid 1px black;
+    bottom: 0;
+    padding-bottom: 1em;
+}
+
+#footer p {
+    font-style: italic;
+    font-weight: 300;
+    font-size: smaller;
+    margin-right: 15px;
+}
+
+#footer p:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+
+#care, #contact {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-file {
+    color: black;
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 110px;
+}
+
+.product-file .name {
+    margin-bottom: 5px;
+}
+
+.product-file .product-description {
+    font-style: italic;
+    font-weight: 200;
+    font-size: small;
+}
+
+.colors {
+    display: flex;
+}
+
+.box {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+
+.green {
+    background-color: green;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.ocean-blue {
+    background-color: #0033ff;
+}
+
+.metal {
+    background: linear-gradient(
+    45deg,
+    #999 5%,
+    #fff 10%,
+    #ccc 30%,
+    #ddd 50%,
+    #ccc 70%,
+    #fff 80%,
+    #999 95%
+  );
+}
