@@ -13,22 +13,58 @@ body {
     display: flex;
     flex-direction: column;
 }
-td {
-    border-top: solid 1px black;
+
+/* ─────────────────────────────── */
+/* HEADER LAYOUT                    */
+/* ─────────────────────────────── */
+
+#header-wrapper {
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 2em;
+    border-bottom: solid 1px black;
+    padding-bottom: 2em;
 }
 
-table {
-    width: 60em;
+#profile-pic {
+    height: 200px;
+    width: auto;
+    border-radius: 8px;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+/* Description */
+#home-text {
+    font-style: italic;
+    color: #0033ff;
+    font-size: small;
+    white-space: pre-wrap;
+}
+
+/* ─────────────────────────────── */
+/* CORPS (TABLE + NAV)             */
+/* ─────────────────────────────── */
+
+#corps {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
 }
 
 ul {
     list-style-position: inside;
     padding-top: 1em;
-}
-
-th {
-    text-align: left;
-    font-weight: bold;
+    flex-shrink: 0;
 }
 
 li {
@@ -41,32 +77,20 @@ li:hover {
     cursor: pointer;
 }
 
-#title {
+table {
+    width: 100%;
+}
+
+td {
+    border-top: solid 1px black;
+}
+
+th {
+    text-align: left;
     font-weight: bold;
-    font-size: xx-large;
 }
 
-#home-text {
-    font-style: italic;
-    color: #0033ff;
-    font-size: small;
-    margin-bottom: 3em;
-    padding-right: 50%;
-    padding-bottom: 1em;
-    border-bottom: solid 1px black;
-}
-
-#corps {
-    display: flex;
-    justify-content: space-between;
-}
-
-#header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
+/* Hover preview */
 .hover_link a {
     position: relative;
     color: rgb(239, 149, 14);
@@ -80,69 +104,16 @@ li:hover {
     position: absolute;
     max-height: 300px;
     display: none;
-    z-index:99;
+    z-index: 99;
     left: 120px;
     bottom: 20px;
     border: solid 1px black;
     width: auto;
+    background-color: #fafafc;
 }
 
 .hover_link a:hover span {
     display: flex;
-}
-
-.hover_link a span pre {
-    color: black;
-    margin-left: 2px;
-    margin-right: 2px;
-    font-weight: 300;
-}
-
-#cart {
-    border: solid 1px black;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-}
-
-#cart:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 1px black;
-}
-
-#cart:active {
-    box-shadow: inset 1px 1px 1px black;
-}
-
-#more {
-    color: #0033ff;
-    font-size: 10em;
-    font-weight: bold;
-}
-
-#footer {
-    margin-top: auto;
-    border-top: solid 1px black;
-    bottom: 0;
-    padding-bottom: 1em;
-}
-
-#footer p {
-    font-style: italic;
-    font-weight: 300;
-    font-size: smaller;
-    margin-right: 15px;
-}
-
-#footer p:hover {
-    cursor: pointer;
-    opacity: 60%;
-}
-
-#care, #contact {
-    display: flex;
-    flex-direction: row;
 }
 
 .product-file {
@@ -163,6 +134,14 @@ li:hover {
     font-size: small;
 }
 
+.hover_image {
+  max-width: 250px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .colors {
     display: flex;
 }
@@ -175,27 +154,91 @@ li:hover {
     margin-right: 5px;
 }
 
-.green {
-    background-color: green;
-}
-
-.pink {
-    background-color: pink;
-}
-
-.ocean-blue {
-    background-color: #0033ff;
-}
-
+.green { background-color: green; }
+.pink { background-color: pink; }
+.ocean-blue { background-color: #0033ff; }
 .metal {
     background: linear-gradient(
-    45deg,
-    #999 5%,
-    #fff 10%,
-    #ccc 30%,
-    #ddd 50%,
-    #ccc 70%,
-    #fff 80%,
-    #999 95%
-  );
+        45deg,
+        #999 5%,
+        #fff 10%,
+        #ccc 30%,
+        #ddd 50%,
+        #ccc 70%,
+        #fff 80%,
+        #999 95%
+    );
+}
+
+/* ─────────────────────────────── */
+/* FOOTER                           */
+/* ─────────────────────────────── */
+
+#footer {
+    margin-top: auto;
+    border-top: solid 1px black;
+    padding-bottom: 1em;
+}
+
+#footer p {
+    font-style: italic;
+    font-weight: 300;
+    font-size: smaller;
+    margin-right: 15px;
+}
+
+#footer p:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+
+#care, #contact {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ─────────────────────────────── */
+/* RESPONSIVE (PHONES)             */
+/* ─────────────────────────────── */
+
+@media (max-width: 900px) {
+    body {
+        margin: 2em;
+    }
+
+    #header-wrapper {
+        flex-direction: column;
+        text-align: start;
+	align-items: flex-start;
+	padding-bottom: 0;
+    }
+
+    #profile-pic {
+        height: 150px;
+    }
+
+    #corps {
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    /* Disable hover previews (no hover on phones) */
+    .hover_link a:hover span {
+        display: none !important;
+    }
+}
+
+@media (max-width: 500px) {
+    #title {
+        font-size: 1.8rem;
+    }
+
+    #home-text {
+        font-size: 0.85rem;
+    }
 }
