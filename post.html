@@ -1,201 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>fix clangd in 65 loc | theo hopsore</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
-
-<style>
-/* ——————————————————————————————— */
-/* GLOBAL */
-/* ——————————————————————————————— */
-* {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    background-color: #fafafc;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    margin: 4em 2em;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    line-height: 1.6;
-}
-
-/* ——————————————————————————————— */
-/* COMPACT HEADER */
-/* ——————————————————————————————— */
-
-#header-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 2em;
-    gap: 0.5em;
-    border-bottom: 1px solid black;
-    padding-bottom: 1em;
-}
-
-#home-link {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: #0033ff;
-}
-
-#home-link:hover {
-    text-decoration: underline;
-}
-
-#site-title {
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-/* ——————————————————————————————— */
-/* BLOG POST */
-/* ——————————————————————————————— */
-
-.post-title {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 0.3em;
-}
-
-.post-meta {
-    font-size: 0.9rem;
-    color: #444;
-    display: flex;
-    gap: 0.4em;
-    margin-bottom: 2em;
-}
-
-.tag {
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.8em;
-    border: 1px solid rgba(0,0,0,0.15);
-}
-
-.post-content p {
-    margin-bottom: 1em;
-}
-
-pre {
-    background: #efefef;
-    padding: 1em;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    overflow-x: auto;
-}
-
-/* ——————————————————————————————— */
-/* FOOTER */
-/* ——————————————————————————————— */
-
-#footer {
-    margin-top: auto;
-    padding-top: 2em;
-    border-top: 1px solid black;
-}
-
-#footer p {
-    font-style: italic;
-    font-size: smaller;
-    margin-right: 15px;
-    display: inline-block;
-}
-
-#footer p:hover {
-    opacity: 0.6;
-    cursor: pointer;
-}
-
-/* ——————————————————————————————— */
-/* RESPONSIVE */
-/* ——————————————————————————————— */
-
-@media (max-width: 800px) {
-    body {
-        margin: 2em;
-    }
-    #site-title {
-        font-size: 1.6rem;
-    }
-}
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <title>theo hopsore</title>
 </head>
-
 <body>
 
-<!-- COMPACT HEADER -->
+<!-- HEADER WRAPPER ADDED -->
 <div id="header-wrapper">
-    <a id="home-link" href="index.html">← Home</a>
-    <div id="site-title">theo hopsore</div>
+    <img src="./product_test.png" alt="product_test" id="profile-pic" />
+   <div>
+       <div id="header">
+           <p id="title">theo hopsore</p>
+       </div>
+       <pre id="home-text">
+hey, im theo, im 24 yo computationnal neuroscientist at the pasteur institute in paris.
+i love nixos and you should try it - check ancore ;)
+at some point in my life i will give a try to raylib but im stuck on configuring my nvim config
+daft punk fan btw</pre>
+   </div>
 </div>
 
-<!-- BLOG POST -->
-<article>
-    <h1 class="post-title">fix clangd in 65 loc</h1>
 
-    <div class="post-meta">
-        <span>January 01, 2025</span>
-        <span class="tag">nvim</span>
-        <span class="tag">tooling</span>
-    </div>
 
-    <div class="post-content">
-        <p>Here begins your blog post content. You can write paragraphs normally.</p>
 
-        <p>This is an example code block:</p>
-
-<pre><code>nix develop
-clangd --check all
-</code></pre>
-
-        <p>And more paragraphs…</p>
-    </div>
-</article>
-
-<!-- FOOTER -->
-<div id="footer">
-    <p>customer service</p>
-    <p>shippings</p>
-    <p>payments</p>
-    <p>terms & conditions</p>
-    <p>privacy policy</p>
-    <p>press</p>
-    <p>contact</p>
+<div id="corps">
+    <ul>
+        <li>posts</li>
+        <li>resume</li>
+        <li>the blabla</li>
+    </ul>
+<div style="display: flex;
+    justify-content: space-between;   /* title left, back link right */
+    align-items: center;               /* vertically aligned */
+    margin-bottom: 1rem;">
+    <h1 style="font-size: xx-large; font-weight:normal;">fix clangd in 65 loc</h1>
+    <a>back</a>
 </div>
-
-<!-- JS: Automatic tag coloring -->
-<script>
-const TAG_COLORS = [
-  "#fffca8", "#b3e5fc", "#c8e6c9",
-  "#ffe0b2", "#f8bbd0", "#d1c4e9", "#f0f4c3"
-];
-
-function hashString(str) {
-  let h = 5381;
-  for (let i = 0; i < str.length; i++)
-    h = ((h << 5) + h) + str.charCodeAt(i);
-  return Math.abs(h);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".tag").forEach(tag => {
-    const name = tag.textContent.trim().toLowerCase();
-    const idx = hashString(name) % TAG_COLORS.length;
-    tag.style.backgroundColor = TAG_COLORS[idx];
-  });
-});
-</script>
+<pre style="font-size: small; font-weight:normal; opacity: .5">Jan 2025 | 236 words | 5 min</pre>
+<!-- <div id="footer"> -->
+<!--     <div id="care"> -->
+<!--         <p>github</p> -->
+<!--     </div> -->
+<!-- </div> -->
 
 </body>
 </html>
