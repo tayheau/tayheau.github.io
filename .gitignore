@@ -1,8 +1,5 @@
-Gemfile
-Gemfile.lock
-_site/
-.sass-cache/
-.DS_Store
-.bundle/
-vendor/
-$RECYCLE.BIN/
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
