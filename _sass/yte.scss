@@ -1,6 +1,10 @@
 @charset "utf-8";
 
 // Here you can define the different variables.
+$base-font-family: system-ui !default;
+$base-font-size:  16px !default;
+$base-font-style: normal !default;
+$small-font-size: $base-font-size * 0.875 !default;
 
 // Sass partials
 @import 
