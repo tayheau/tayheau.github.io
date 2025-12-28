@@ -5,4 +5,14 @@ body, ul, li, table, p, h1, pre, {
   padding: 0;
   font-family: $base-font-family;
   font-size: $base-font-size;
+  // background-color: $base-background-color;
+}
+
+a {
+  // color: $base-accent-color;
+  text-decoration: None;
+}
+
+a:hover {
+ text-decoration: underline;
 }

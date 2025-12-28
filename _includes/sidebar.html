@@ -1,7 +1,11 @@
 <aside id="sidebar">
 	<ul>
 		{% for item in site.data.navigation %}
-			<li>{{ item.title }}</li>
+			<li>
+				<a href="{{ item.url }}">
+					{{ item.title }}
+				</a>
+			</li>
 		{% endfor %}
 	</ul>
 </aside>
