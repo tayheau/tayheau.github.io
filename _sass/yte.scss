@@ -7,17 +7,34 @@ $base-font-size:  26px !default;
 $base-font-style: normal !default;
 $small-font-size: $base-font-size * 0.875 !default;
 
+$text-margin-bottom: 20px !default;
+
 $color-text-primary: #000000 !default;
+$color-text-secondary: lighten($color-text-primary, 35%) !default;
 
 $color-background-default: #ffffff !default;
 
-
-
-
+$color-background-code: darken($color-background-default, 10%) !default;
+$color-border-code: darken($color-background-code, 10%) !default;
 
 $color-accent-primary: #ef950e;
 $color-accent-secondary: #0000ee;
 
+$color-visited-post: lighten($color-accent-primary, 20%) !default;
+$color-post-meta: $color-text-secondary;
+$color-post-title: $color-accent-primary;
+
+$color-sidebar-li: $color-accent-secondary;
 // Sass partials
+
+$phone-breakpoint: 590px !default;
+
+@mixin media-query($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
 @import 
-  "yte/base";
+  "yte/base",
+  "yte/syntax_highlight";

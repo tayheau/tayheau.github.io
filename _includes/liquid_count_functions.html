@@ -1,0 +1,9 @@
+{% assign word_count = page.content
+  | strip_html
+  | split: " "
+  | size %}
+
+{% assign reading_time = word_count
+	| divided_by: 5 
+	| divided_by: 60
+	| at_least: 1 %}

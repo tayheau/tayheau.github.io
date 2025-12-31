@@ -30,8 +30,11 @@ twitter_username: jekyllrb
 github_username:  tayheau
 
 # Build settings
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
+
+plugins_dir:
+  - _plugins
 
 collections:
   pages:

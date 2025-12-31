@@ -1,6 +1,7 @@
 <ul>
 	{% for post in site.posts %}
-		<li>
+		<li id="post_link">
+			{{ post.date | date: "%b %y" | downcase }}
 			<a href="{{ post.url }}">
 				{{ post.title | downcase }}
 			</a>
