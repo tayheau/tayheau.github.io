@@ -17,12 +17,15 @@ $color-background-default: #ffffff !default;
 $color-background-code: darken($color-background-default, 10%) !default;
 $color-border-code: darken($color-background-code, 10%) !default;
 
-$color-accent-primary: #ef950e;
+$color-accent-primary: #ff8700;
 $color-accent-secondary: #0000ee;
 
+// $color-visited-post: lighten($color-accent-primary, 20%) !default;
 $color-visited-post: lighten($color-accent-primary, 20%) !default;
-$color-post-meta: $color-text-secondary;
-$color-post-title: $color-accent-primary;
+$color-post-text-meta: $color-text-secondary;
+$color-post-bg-h1: $color-accent-primary;
+$color-post-bg-h2: lighten($color-accent-primary, 30%); //#fcd5a9
+$color-post-bg-h3: lighten($color-accent-primary, 40%);
 
 $color-sidebar-li: $color-accent-secondary;
 // Sass partials

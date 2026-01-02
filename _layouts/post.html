@@ -4,12 +4,14 @@ layout: base
 {% include liquid_count_functions.html %}
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
 <div class="post-header">
-	<h3 class="post-title">
+	<h1 class="post-title">
 		<span>
 			[{{ page.date | date: "%b %y" | downcase }}]
 		</span>
 		{{ page.title | downcase }}
-	</h3>
+	</h1>
 	<p class="post-meta">{{ word_count }} words · {{ reading_time }} min</p>
 </div>
-{{ content }}
+<div id="post-content">
+	{{ content }}
+</div>
