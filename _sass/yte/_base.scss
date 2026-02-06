@@ -19,6 +19,17 @@ ul {
   list-style-type: None;
 }
 
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
 a {
   // color: $base-accent-color;
   text-decoration: None;
