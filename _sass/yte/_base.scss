@@ -83,8 +83,12 @@ img {
   }
 
   a:visited {
-    color: $color-visited-post;
+    color: $color-accent-primary;
   }
+}
+
+main {
+  width: 100%;
 }
 
 #post-content{
@@ -108,7 +112,16 @@ img {
   background-color: $color-background-code;
 }
 
+#home-title {
+  background-color: $color-home-bg-h1;
+  color: $color-home-text-h1;
+  font-size: $base-font-size;
+  font-weight: normal;
+  margin-bottom: $text-margin-bottom;
+}
+
 #markdown-toc {
+  background-color: rgb(246, 246, 246);
   margin-bottom: $text-margin-bottom;
   a {
   color: $color-text-secondary;

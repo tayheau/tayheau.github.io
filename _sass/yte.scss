@@ -11,6 +11,7 @@ $text-margin-bottom: 20px !default;
 
 $color-text-primary: #000000 !default;
 $color-text-secondary: lighten($color-text-primary, 35%) !default;
+$color-text-white: #ffffff !default;
 
 $color-background-default: #ffffff !default;
 
@@ -19,6 +20,9 @@ $color-border-code: darken($color-background-code, 10%) !default;
 
 $color-accent-primary: #ff8700;
 $color-accent-secondary: #0000ee;
+
+$color-home-bg-h1: $color-accent-secondary;
+$color-home-text-h1: $color-text-white;
 
 // $color-visited-post: lighten($color-accent-primary, 20%) !default;
 $color-visited-post: lighten($color-accent-primary, 20%) !default;
