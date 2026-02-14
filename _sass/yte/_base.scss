@@ -19,6 +19,8 @@ ul {
   list-style-type: None;
 }
 
+
+
 table {
   width:100%;
   border-collapse:collapse;
@@ -28,6 +30,10 @@ th, td {
   text-align:left;
   padding:5px 10px;
   border-bottom:1px solid #e5e5e5;
+}
+
+table {
+  margin-bottom: 40px;
 }
 
 a {
@@ -47,7 +53,8 @@ a:hover {
 }
 
 img {
-  max-width: 1000px;
+  max-width: 100%;
+  height: auto;
 }
 
 .post-meta {
@@ -105,6 +112,27 @@ main {
 #post-content{
   font-size: $small-font-size ;
 
+  ul {
+    list-style: inside;
+    margin-bottom: 20px;
+  }
+
+  #markdown-toc {
+    background-color: rgb(246, 246, 246);
+    margin-bottom: $text-margin-bottom;
+    a {
+      color: $color-text-secondary;
+    }
+    list-style: None;
+    ul {
+      margin-bottom: 0;
+      list-style: None;
+      li {
+        margin-left: 30px;
+      }
+    }
+  }
+
   h2, h3 {
     font-weight: normal;
     font-size: $base-font-size;
@@ -131,18 +159,7 @@ main {
   margin-bottom: $text-margin-bottom;
 }
 
-#markdown-toc {
-  background-color: rgb(246, 246, 246);
-  margin-bottom: $text-margin-bottom;
-  a {
-  color: $color-text-secondary;
-  }
-  ul {
-    li {
-      margin-left: 30px;
-    }
-  }
-}
+
 
 #sidebar {
   a, a:visited, a:active, a:hover {
