@@ -4,8 +4,8 @@
 - title: resume
   url: /resume/
 
-- title: publications
-  url: /publications/
+# - title: publications
+#   url: /publications/
 
 - title: about
   url: /index/

@@ -4,9 +4,7 @@ title: about
 ---
 hi, i'm Theo
 
-i'm 24 and i'm working as a computational neuroscientist on optogenetic cochlear implant at the Patseur Institute in Paris. 
+i'm 24 and i'm working as a __computational neuroscientist__ on optogenetic cochlear implant at the __Patseur Institute__ in Paris.  
+from time to time i work on [SpikeInterface](https://github.com/spikeinterface/spikeinterface) a spike sorting lib. go give it a star, they highly deserve it !
 
-when im not actively trying to develop my small brain, i dj, play games (currently dead cells ;D) - also board games haha !  
-currently as a personnal project, im making an [34 keys](https://github.com/davidphilipbarr/Sweep) kb layout based on personnal corpus and few optimization rules (would be funny if it leads to a [colemak-dh](https://colemakmods.github.io/mod-dh/) lookalike) 
-
-huge daft punk fan btw.
+as a hobby,  i do [mix](https://soundcloud.com/tayheau/tracks) techno, do some *recreational programming*, and play boardgames.

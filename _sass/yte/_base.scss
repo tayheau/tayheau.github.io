@@ -1,68 +1,55 @@
 // here we reset default values
-
 body, ul, li, table, p, h1, h2, h3, pre {
   margin: 0;
   padding: 0;
   font-family: $base-font-family;
-  // background-color: $base-background-color;
 }
-
 html {
-    font-size: $base-font-size;
+  font-size: $base-font-size;
+  max-width: 100%;
+  overflow-x: hidden;
 }
-
 body {
   display: flex;
+  max-width: 100%;
+  overflow-x: hidden;
 }
-
 ul {
   list-style-type: None;
 }
-
-
-
 table {
-  width:100%;
-  border-collapse:collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
-
 th, td {
-  text-align:left;
-  padding:5px 10px;
-  border-bottom:1px solid #e5e5e5;
+  text-align: left;
+  padding: 5px 10px;
+  border-bottom: 1px solid #e5e5e5;
 }
-
 table {
   margin-bottom: 40px;
 }
-
 a {
-  // color: $base-accent-color;
   text-decoration: None;
 }
-
 a:hover {
- text-decoration: underline;
+  text-decoration: underline;
 }
-
-// TODO: verify this actually works
 @include media-query($phone-breakpoint) {
   body {
     display: block;
   }
 }
-
 img {
   max-width: 100%;
+  width: 500px;
   height: auto;
 }
-
 .post-meta {
   color: $color-post-text-meta;
   margin-bottom: 0px;
   font-size: $small-font-size;
 }
-
 .page-content {
   margin-top: 10px;
   margin-right: 40px;
@@ -70,14 +57,12 @@ img {
     margin-bottom: $text-margin-bottom;
   }
 }
-
 .post-header {
   margin-bottom: $text-margin-bottom;
   p {
     margin-bottom: 0px;
   }
 }
-
 .post-title {
   background-color: $color-post-bg-h1;
   font-size: $base-font-size;
@@ -85,38 +70,30 @@ img {
   span {
     opacity: 70%;
   }
-
 }
-
-
-
 #post-link {
   color: $color-text-secondary;
   display: grid;
   grid-template-columns: 6ch auto;
   align-items: baseline;
-
-  a { 
+  a {
     color: $color-accent-primary;
   }
-
   a:visited {
     color: $color-accent-primary;
   }
 }
-
 main {
   width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
-
-#post-content{
-  font-size: $small-font-size ;
-
+#post-content {
+  font-size: $small-font-size;
   ul {
     list-style: inside;
     margin-bottom: 20px;
   }
-
   #markdown-toc {
     background-color: rgb(246, 246, 246);
     margin-bottom: $text-margin-bottom;
@@ -132,25 +109,25 @@ main {
       }
     }
   }
-
   h2, h3 {
     font-weight: normal;
     font-size: $base-font-size;
   }
-
   h2 {
     background-color: $color-post-bg-h2;
   }
-
   h3 {
     background-color: $color-post-bg-h3;
   }
 }
-
 .language-plaintext {
   background-color: $color-background-code;
 }
-
+pre, .highlight {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
 #home-title {
   background-color: $color-home-bg-h1;
   color: $color-home-text-h1;
@@ -158,12 +135,8 @@ main {
   font-weight: normal;
   margin-bottom: $text-margin-bottom;
 }
-
-
-
 #sidebar {
   a, a:visited, a:active, a:hover {
     color: $color-sidebar-li;
   }
 }
-

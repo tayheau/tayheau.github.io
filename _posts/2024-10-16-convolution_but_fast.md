@@ -6,6 +6,8 @@ layout: post
 
 
 ![](https://raw.githubusercontent.com/tayheau/tayheau.github.io/refs/heads/main/_medias/convolution_but_fast.jpg)
+* TOC
+{:toc}  
 
 ## An important operation
 Convolution is one of the most important linear operation in the domain of Deep Learning. It allowed the current state of Deep Learning by being at the center of one of the two major recent breakthrough (the other one being in 2017 with the attention mechanism[ [10] ](#10)). In 2012 when Krizhevsky et al.[ [9] ](#9) proved that state-of-the-art image modeling was overperformed by a CNN and a 100x larger dataset.
@@ -20,9 +22,12 @@ They are implementation of convolution algorithm that applies **algorithmic stre
 The im2col algorithm is not one the the fast algorithm I talked about just above since it performs the same number of multiplications as the direct naive convolution with nested loops.  But why do we talk about it then ? On most of textbook or tutorials, convolution is presented by a kernel window gliding on the input and computing the convolution operation at each spot.
 
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/ezgif492cd8c253f.gif)
+
 And the naive implementation is some nested loops, not very efficient. The main idea of the im2col algorithm is to transform the whole process into a matrix multiplication so that we can exploit GEMM computation.
 So do achieve this, let's say we work with a 3 channel w\*w input matrix and a 3 channel k\*k kernel, so that we obtain a mono channel (w-k+1)\*(w-k+1) feature map (no padding, no striding, no dilation, vanilla conv). We will then take every sliding window on the input matrix, convert it into a column, assembling those columns into a (k\*k\*c) \* ((h-k+1) \* (w-k+1)) matrix.
+
 ![iui.png](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/iui.png?raw=true)
+
   The kernel is then also flattened, we execute a matrix multiplication and reshape the obtained result in a (h-k+1)\*(w-k+1) matrix with col2im. 
   
 A naive way to implement it would be like this : 
@@ -43,13 +48,16 @@ def im2col(input: np.array, k_h: int, k_w:int, stride: Tuple[int, int] = (1, 1))
 Where it returns the transpose of the intermediary matrix, you just have to flatten the kernel, effectue a matmul and reshape the result in the desired format. So you might think that the huge data duplication would be memory expensive and you are right, but this is far overweighted by the fast computing of matrix-multiplication.
 
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/Pastedimage20241014184647.png)
+
 *Performances tested on a Apple M1 2020*
 
 ### Contiguous data
 As seen previously, we need to create a col matrix in the process by using a for loop. But numpy as a very interesting function in our case that will drasticly decrease our computing time by using memory addresses to create our im2col matrix :  `np.lib.stride_tricks.as_strided()` . But first, we need to briefly check how an array is stocked  in memory.
 
 An array  will have is values stored as an unbroken block of memory in the computer's memory : to access the next value of the array, you need to move to the next memory address.
+
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/Untitled-2023-09-21-1029.png?raw=true)
+
 When performing operations on arrays, accessing elements that are stored **next to each other in memory** is faster because of how CPUs utilize their cache.
 
 When an array is loaded into memory, CPUs often load **adjacent memory locations into cache** (this is called _spatial locality_). This allows the CPU to quickly access nearby elements without fetching from slower main memory. However, when data is not contiguous or laid out in an inefficient order, the CPU has to fetch data from main memory more frequently, slowing down computations.
@@ -59,10 +67,15 @@ In the context of convolution, the naive im2col implementation creates new array
 To solve this, we can use `np.lib.stride_tricks.as_strided()`, which allows us to create a **"view"** of the input matrix without duplicating data. This function reinterprets the input data with new strides, meaning we can effectively compute the im2col operation **without actually creating a new array**, saving memory and improving performance.
 
 Considering the above `np.ndarray` as the variable `matrix`, we can use the `matrix.strides` to obtain a tuple of the bytes necessary to take a step in the different dimension of the array ine the computer memory.
+
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/strides.png?raw=true)
+
 With that in mind, we can then use the `np.lib.stride_tricks.as_strided()`, which create a view of an array with a given shape and strides.
+
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/stride.gif?raw=true)
+
 We can then compose a new `stride_mem2col()` function, which could be more developed later : 
+
 ```python
 def im2col_strideTrick_2D(input: np.ndarray, kernel_shape: tuple) -> Tuple[Tuple[int, int], np.ndarray]:
 	input_strides = input.strides
@@ -72,7 +85,9 @@ def im2col_strideTrick_2D(input: np.ndarray, kernel_shape: tuple) -> Tuple[Tuple
 	result = result.transpose(2, 3, 0, 1)
 	return tuple(new), result.reshape(kernel_shape[0] * kernel_shape[1], -1).T
 ```
+
 We then obtain the following performance results : 
+
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/Pastedimage20241014195712.png?raw=true)
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/Pastedimage20241014220904.png?raw=true)
 
@@ -83,7 +98,9 @@ The previous algorithm works pretty fine, but we as human who crave for more *ef
 
 ### Data Redudancy of im2col 
 The process of convolution implies a lot of redundancy in the processed data, for example, if we recall the first gif about convolution in the post, we can see that there is some overlapping degree of the sliding window.
+
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/data_redudancy.png?raw=true)
+
 With the blank region not overlapping, the yellow ones slightly overlapping and the red one being extremely overlapped.
 
 The `im2col` algorithm transforms the convolution process into a matrix multiplication problem, which is computationally efficient. However, this efficiency comes at a cost: **data redundancy**. Each sliding window of the convolution operation overlaps significantly, especially when dealing with small kernels like 3x3. As a result, im2col duplicates input values multiple times to create the large column matrix for matrix multiplication.
@@ -94,6 +111,7 @@ A `1*4*4` input matrix will have 16 elements, but if we apply the `im2col` algor
 For an input of size `w*w` and a kernel `k*k`, we will obtain a `m² = (w-k+1)²` output. To do so, vanilla and im2col convolutions will performs `k²m²` multiplications. It is know since the 80's that the minimal algorithm for computing `m` outputs with a `r`-tap FIR filter needs `µ(F(m, r)) = m+k-1` multiplications. So i out case, it will require `µ(F(m * m, r * r)) = µ(F(m, r)) * µ(F(m, r)) = (m+k-1)²` multiplications.
 
 where we have : 
+
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/wino.png?raw=true)
 
 ![](https://github.com/tayheau/tayheau.github.io/blob/main/_medias/wino_calc.png?raw=true)
@@ -141,7 +159,7 @@ You can find the code for this blog on this [git](https://github.com/tayheau/con
 
 <a id="9">[9]</a> : Krizhevsky Alex and Sutskever Ilya and Hinton Geoffrey E. *ImageNet Classification with Deep Convolutional Neural Networks*. 2012. In: [Advances in neural information processing systems 25](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)
 
-<a id="10">[10]</a> : Ashish Vaswani et al. *Attention Is All You Need*. 2017. arXiv:1706.03762](https://arxiv.org/abs/1706.03762) [cs.CL]| 
+<a id="10">[10]</a> : Ashish Vaswani et al. *Attention Is All You Need*. 2017. arXiv:1706.03762](https://arxiv.org/abs/1706.03762) [cs.CL]
 
 <a id="11">[11]</a> : *Computational complexity of mathematical operations*. [Wikipedia](https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations)
 
