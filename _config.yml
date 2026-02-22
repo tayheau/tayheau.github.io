@@ -29,6 +29,7 @@ kramdown:
   auto_ids: true
   toc_levels: 2..3
 
+permalink: pretty
 
 # Build settings
 # plugins:
