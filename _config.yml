@@ -34,13 +34,13 @@ kramdown:
 # plugins:
 #   - jekyll-feed
 
-plugins_dir:
-  - _plugins
+#plugins_dir:
+ # - _plugins
 
-collections:
-  pages:
-    output: true
-    permalink: /:name/
+#collections:
+#  pages:
+#    output: true
+#    permalink: /:name/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
