@@ -1,6 +1,6 @@
 ---
 title: "Empirically challenging the norm as a sufficient descriptor of the weight init relevant to grokking"
-date: 2026-08-31
+date: 2026-09-11
 layout: post
 ---
 
