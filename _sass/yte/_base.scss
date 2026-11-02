@@ -129,14 +129,19 @@ $band-bleed: 0.4rem;
   margin-bottom: 1rem;
 }
 
+// like a GitHub profile: big semibold name, lighter links under it
 .site-title {
+  font-size: 1.35rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .site-links {
   color: var(--ink-2);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-top: 0.1rem;
 
   a {
     color: inherit;
@@ -150,7 +155,8 @@ $band-bleed: 0.4rem;
 }
 
 .site-nav {
-  margin-top: 2.25rem;
+  margin-top: 2rem;
+  font-size: 1.25rem;
 
   ul {
     list-style: none;
