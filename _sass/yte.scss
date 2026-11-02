@@ -1,40 +1,19 @@
 @charset "utf-8";
 
-// Here you can define the different variables.
+// ---------------------------------------------------------------------------
+// yte — tokens
+//
+// The identity: black on white, system-ui, lowercase, and highlighter bars.
+// Orange marks posts (title, h2, h3 in descending strength), blue marks pages
+// and navigation. Everything else stays quiet.
+// ---------------------------------------------------------------------------
 
-$base-font-family: system-ui !default;
-$base-font-size:  26px !default;
-$base-font-style: normal !default;
-$small-font-size: $base-font-size * 0.875 !default;
+$font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !default;
 
-$text-margin-bottom: 20px !default;
-
-$color-text-primary: #000000 !default;
-$color-text-secondary: lighten($color-text-primary, 35%) !default;
-$color-text-white: #ffffff !default;
-
-$color-background-default: #ffffff !default;
-
-$color-background-code: darken($color-background-default, 10%) !default;
-$color-border-code: darken($color-background-code, 10%) !default;
-
-$color-accent-primary: #ff8700;
-$color-accent-secondary: #0000ee;
-
-$color-home-bg-h1: $color-accent-secondary;
-$color-home-text-h1: $color-text-white;
-
-// $color-visited-post: lighten($color-accent-primary, 20%) !default;
-$color-visited-post: lighten($color-accent-primary, 20%) !default;
-$color-post-text-meta: $color-text-secondary;
-$color-post-bg-h1: $color-accent-primary;
-$color-post-bg-h2: lighten($color-accent-primary, 30%); //#fcd5a9
-$color-post-bg-h3: lighten($color-accent-primary, 40%);
-
-$color-sidebar-li: $color-accent-secondary;
-// Sass partials
-
-$phone-breakpoint: 590px !default;
+$side-width: 12rem !default;     // left column
+$column-gap: 4.5rem !default;
+$phone-breakpoint: 760px !default;
 
 @mixin media-query($breakpoint) {
   @media screen and (max-width: $breakpoint) {
@@ -42,6 +21,28 @@ $phone-breakpoint: 590px !default;
   }
 }
 
-@import 
+// Colors live in CSS custom properties. Light only: the site is always black
+// on white.
+:root {
+  color-scheme: light;
+
+  --ink: #000000;
+  --ink-2: #5c5c5c;
+  --paper: #ffffff;
+  --wash: #f4f4f4;
+  --rule: #e3e3e3;
+
+  --orange: #ff8700;       // post title bar, selection
+  --orange-2: #ffcf99;     // h2 bar
+  --orange-3: #ffe9d1;     // h3 bar, hover marks
+  --on-orange: #000000;
+
+  --blue: #0000ee;         // page title bar, active nav
+  --on-blue: #ffffff;
+  --link: #0000ee;
+  --visited-mark: #ffcf99; // underline of a post you've already read
+}
+
+@import
   "yte/base",
   "yte/syntax_highlight";

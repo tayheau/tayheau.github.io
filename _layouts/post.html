@@ -2,25 +2,115 @@
 layout: base
 ---
 {% include liquid_count_functions.html %}
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ 
-    startOnLoad: true,
-    securityLevel: 'loose'
+<script>
+  window.MathJax = {
+    tex: { tags: "ams" },
+    options: {
+      // plain MathML for screen readers; the speech engine re-renders every
+      // formula after load and pulls in a large extra download
+      menuOptions: {
+        settings: { enrich: false, speech: false, braille: false, assistiveMml: true }
+      }
+    },
+    output: {
+      displayOverflow: "overflow",
+      linebreaks: { inline: true, width: "100%" }
+    },
+    startup: {
+      ready() {
+        MathJax.startup.defaultReady();
+        // long display formulas are broken across lines; aligned equations and
+        // matrices are left whole (breaking inside their cells scrambles the
+        // alignment) and fitToColumn scales them instead
+        MathJax.startup.input[0].postFilters.add(({ data }) => {
+          let grid = false;
+          data.root.walkTree((node) => { if (node.isKind("mtable")) grid = true; });
+          if (!grid) data.root.attributes.set("overflow", "linebreak");
+        });
+      },
+      pageReady: () => MathJax.startup.defaultPageReady().then(fitMath)
+    }
+  };
+
+  // Line breaking handles most long formulas. Whatever is still too wide for
+  // the text column (aligned equations with their numbers, tables full of
+  // math) is shrunk until it fits, so the page never scrolls sideways.
+
+  // The space an element may use: its parent's content box.
+  function room(el) {
+    const box = el.parentElement, r = box.getBoundingClientRect(), cs = getComputedStyle(box);
+    const left = r.left + parseFloat(cs.borderLeftWidth) + parseFloat(cs.paddingLeft);
+    const right = r.right - parseFloat(cs.borderRightWidth) - parseFloat(cs.paddingRight);
+    return { centre: (left + right) / 2, width: right - left };
+  }
+
+  // How many times too wide an element is (above 1 means it overflows).
+  function overflowRatio(el) {
+    const space = room(el);
+    const svg = el.matches("mjx-container") && el.querySelector(":scope > svg");
+    if (!svg) return el.scrollWidth / space.width;
+    // Display math is centred, so measure the painted formula (not the boxes
+    // MathJax declares, which can be off) on each side of the centre line.
+    // A numbered equation also needs its number plus 1em clear on the right.
+    const body = svg.querySelector("svg[data-table]") || svg.querySelector(":scope > g");
+    const tags = svg.querySelector("svg[data-labels]");
+    const ink = body.getBoundingClientRect();
+    let right = ink.right - space.centre, left = space.centre - ink.left;
+    if (tags) {
+      const t = tags.getBoundingClientRect(), em = parseFloat(getComputedStyle(el).fontSize);
+      right = Math.max(right + t.width + em, t.right - space.centre);
+    }
+    return 2 * Math.max(left, right) / space.width;
+  }
+
+  // Shrinks whatever overflows; returns the formulas that had to go below
+  // half their normal size.
+  function fitToColumn() {
+    const tiny = [];
+    const wide = document.querySelectorAll('#post-content mjx-container[display="true"], #post-content table');
+    for (const el of wide) {
+      el.style.fontSize = "";
+      const normal = parseFloat(getComputedStyle(el).fontSize);
+      for (let i = 0, r; i < 8 && (r = overflowRatio(el)) > 1.002; i++) {
+        el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) * 0.99 / r) + "px";
+      }
+      if (parseFloat(getComputedStyle(el).fontSize) < 0.5 * normal) tiny.push(el);
+    }
+    return tiny;
+  }
+
+  // Aligned equations that would end up unreadably small are line broken
+  // after all, then shrunk only if they still do not fit.
+  async function fitMath() {
+    const tiny = fitToColumn().filter((el) => el.matches("mjx-container"));
+    if (!tiny.length) return;
+    for (const item of MathJax.startup.document.math) {
+      if (tiny.includes(item.typesetRoot)) item.root.attributes.set("overflow", "linebreak");
+    }
+    tiny.forEach((el) => { el.style.fontSize = ""; });
+    await MathJax.startup.document.rerenderPromise();
+    fitToColumn();
+  }
+
+  let refit;
+  addEventListener("resize", () => {
+    clearTimeout(refit);
+    refit = setTimeout(() => window.MathJax?.startup?.promise?.then(fitToColumn), 150);
   });
 </script>
-<script defer src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<div class="post-header">
-	<h1 class="post-title">
-		<span>
-			[{{ page.date | date: "%b %y" | downcase }}]
-		</span>
-		{{ page.title | downcase }}
-	</h1>
-	<p class="post-meta">
-		{{ word_count }} words · {{ reading_time }} min
-	</p>
-</div>
-<div id="post-content">
-	{{ content }}
-</div>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
+{% if content contains 'class="mermaid"' %}
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
+</script>
+{% endif %}
+<article>
+	<header class="post-header">
+		<h1 class="post-title"><span class="post-date">[{{ page.date | date: "%b %y" | downcase }}]</span> {{ page.title | downcase }}</h1>
+		<p class="post-meta">{{ word_count }} words · {{ reading_time }} min</p>
+	</header>
+	<div id="post-content" class="prose">
+		{{ content }}
+	</div>
+</article>

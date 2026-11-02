@@ -40,7 +40,7 @@ should also induce a (monotonic) change in grokking time.
 Taking a [mnist grokking setup](https://colab.research.google.com/drive/1wLkyHadyWiZSwaR0skJ7NypiYKCiM7CR?usp=sharing) from the paper, 
 using $$\beta \in \left[0.25, 0.5, 1.0, 2.0, 4.0\right]$$ and averaging each beta values accross 10 differents rng seeds, we have the following results
 
-![](/assets/img/challenging/mnist_function_preserving_rescale.png){: style="width: 50%"}
+![](/assets/img/challenging/mnist_function_preserving_rescale.png)
 
 We we can clearly observe that grokking happens in the same time window for every $$\beta$$, so there is no obvious relation 
 between grokking time and weight norm.
@@ -54,9 +54,9 @@ we should do the same experiment and do a NTK similarity matrix using the CKA an
  
  Some results with the same $$\beta$$ setup, plotting initial NTK metrics:
 
-![](/assets/img/challenging/mnist_beta_initial_ntk_metrics.png){: style="width: 50%"}
+![](/assets/img/challenging/mnist_beta_initial_ntk_metrics.png)
 
-![](/assets/img/challenging/mnist_beta_pairwise_ntk_cka.png){: style="width: 30%"}
+![](/assets/img/challenging/mnist_beta_pairwise_ntk_cka.png){: style="width: 65%"}
 
 We can observe that the matrix and the target alignment have very small variance scale.
 Given that all networks grok approx at the same time, it doesnt dismiss NTK based metrics as efficients one to look at to init weights.

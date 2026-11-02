@@ -1,11 +1,15 @@
-<aside id="sidebar">
+<nav class="site-nav" aria-label="Site">
 	<ul>
 		{% for item in site.data.navigation %}
+			{% assign current = false %}
+			{% if page.url == item.url %}
+				{% assign current = true %}
+			{% elsif page.layout == "post" and item.url == "/posts/" %}
+				{% assign current = true %}
+			{% endif %}
 			<li>
-				<a href="{{ item.url | relative_url }}">
-					{{ item.title }}
-				</a>
+				<a href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.title }}</a>
 			</li>
 		{% endfor %}
 	</ul>
-</aside>
+</nav>

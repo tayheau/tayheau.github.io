@@ -1,15 +1,13 @@
-<div id="header-wrapper">
-	<img src="https://github.com/{{ site.github_username }}.png" alt="profile picture" id="profile-pic" />
+<div class="identity">
+	<img src="https://github.com/{{ site.github_username }}.png" alt="" id="profile-pic" width="72" height="72">
 	<div>
-
-		<div id="header">
-			<p id="title">{{ site.title }}</p>
-		</div>
-		<div id="links">
+		<p class="site-title">{{ site.title }}</p>
+		<p class="site-links">
 			<a href="https://github.com/{{ site.github_username }}">github</a>
-			<span>·</span>
+			·
 			<a href="mailto:{{ site.email }}">email</a>
-		</div> <!-- <pre id="home-text"> -->
+		</p>
+		<!-- <pre id="home-text"> -->
 		<!-- 	hey, im theo, im 24 yo computationnal neuroscientist at the pasteur institute in paris. -->
 		<!-- 	i love nixos and you should try it - check ancore ;) -->
 		<!-- 	at some point in my life i will give a try to raylib but im stuck on configuring my nvim config -->

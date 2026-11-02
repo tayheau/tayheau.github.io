@@ -46,7 +46,7 @@ h(t) =
 $$
 
 
-![](/assets/img/grokfast/grokfast_ma_ema.png){: style="width: 50%"}
+![](/assets/img/grokfast/grokfast_ma_ema.png)
 
 
 One major flaw is the memory scaling: you need $$w$$ times more memory than originaly needed + non linear training time scaling. So non applicable to actual big models.
@@ -80,7 +80,7 @@ $$
 - Following Omnigrok[[1]](#1), weight decay accelerate generalization under grokking.
 
 ## Trajectories
-![](/assets/img/grokfast/grokfast_trajectories.png){: style="width: 50%"}
+![](/assets/img/grokfast/grokfast_trajectories.png)
 
 Theses observations support the interpretation that grokking is a state transition phenomenon.
 

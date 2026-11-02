@@ -30,7 +30,7 @@ Through the paper they rely on $$\alpha = \frac{w}{w_0}$$, **multiplying factor 
 
 There is a spherical shell in the weight space (the "Goldilocks" zone), where generalization is better than outside this zone. 
 
-![goldilocks](/assets/img/omnigrok/goldilocks.png){: #goldilocks style="width: 50%"}
+![goldilocks](/assets/img/omnigrok/goldilocks.png){: #goldilocks}
 
 
 ## LU mechanism defined
@@ -51,7 +51,7 @@ A **small weight norm initialization** will always generalize fast, without cons
 
 Grokking is not so common for a main reason: common init schemes typically have $$w < w_c$$ 
 
-![](/assets/img/omnigrok/dynamics.png){: style="width: 50%"}
+![](/assets/img/omnigrok/dynamics.png)
 
 ## Omnigrok: grokking for more interesting tasks
 ### mnist image classification 
@@ -65,7 +65,7 @@ $$
 \mathbf{w}^* = argmin_{||\mathbf{w}||_2 = w}l_{train}(\mathbf{w}, N)
 $$
 
-![](/assets/img/omnigrok/datasize_landscape.png){: style="width: 50%"}
+![](/assets/img/omnigrok/datasize_landscape.png)
 
 We observe 3 main points:
 1. Larger init leads to grokking

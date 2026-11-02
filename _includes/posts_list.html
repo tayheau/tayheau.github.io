@@ -1,12 +1,8 @@
-<ul>
+<ul class="post-list">
 	{% for post in site.posts %}
-		<li id="post-link">
-			<time id="post-date">
-				{{ post.date | date: "%b %y" | downcase }}
-			</time>
-			<a href="{{ post.url }}">
-				{{ post.title | downcase }}
-			</a>
+		<li class="post-item">
+			<time class="post-item-date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%b %y" | downcase }}</time>
+			<a class="post-item-link" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a>
 		</li>
 	{% endfor %}
 </ul>
